@@ -403,9 +403,9 @@ footer{background:var(--anthracite);color:#fff;padding:5rem 6vw 2.5rem}
   display:flex;align-items:flex-end;
   background:var(--bleu2);overflow:hidden;
 }
-.hero-slides{position:absolute;inset:0}
-.hero-slide{position:absolute;inset:0;opacity:0;background-size:cover;background-position:center;transition:opacity 1.4s ease;background-color:var(--bleu2)}
-.hero-slide.active{opacity:1}
+
+
+
 .hero-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(39,78,125,.9) 0%,rgba(39,78,125,.4) 60%,rgba(39,78,125,.15) 100%)}
 .hero-content{position:relative;z-index:2;padding:0 6vw 8vh;max-width:760px}
 .hero-tag{
@@ -429,9 +429,9 @@ footer{background:var(--anthracite);color:#fff;padding:5rem 6vw 2.5rem}
 .hs:last-child{border-bottom:none}
 .hs-n{font-family:'Bree Serif',serif;font-size:2.8rem;color:#fff;display:block;line-height:1}
 .hs-l{font-family:'Barlow Condensed',sans-serif;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.6);display:block;margin-top:5px}
-.hero-dots{position:absolute;bottom:3rem;right:1.8rem;z-index:3;display:flex;flex-direction:column;gap:7px}
-.hero-dot{width:3px;height:16px;background:rgba(255,255,255,.3);border:none;cursor:pointer;padding:0;transition:.3s}
-.hero-dot.active{background:#fff;height:30px}
+
+
+
 .hist-img{background-size:cover;background-position:center;background-color:var(--fond2)}
 .hist-badge{
   position:absolute;bottom:-1rem;left:-1rem;
@@ -457,6 +457,25 @@ footer{background:var(--anthracite);color:#fff;padding:5rem 6vw 2.5rem}
 
 .nav-links>li::after{content:'';position:absolute;left:0;right:0;top:100%;height:12px}
 .dropdown{position:absolute;top:calc(100% + 0px);left:0;margin-top:0;padding-top:4px;}
+
+.hero-video-wrap{position:absolute;inset:0;overflow:hidden;z-index:0}
+.hero-video{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);min-width:100%;min-height:100%;width:auto;height:auto;object-fit:cover}
+
+.hero-placeholder{position:absolute;inset:0;overflow:hidden;z-index:0}
+.hero-placeholder-inner{
+  position:absolute;inset:-10%;
+  background:
+    radial-gradient(ellipse at 20% 50%, rgba(0,142,210,.35) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 20%, rgba(39,78,125,.5) 0%, transparent 50%),
+    linear-gradient(135deg, #1a3a5c 0%, #274E7D 40%, #1d5c8a 70%, #0d2d4a 100%);
+  animation:placeholderShift 12s ease-in-out infinite alternate;
+}
+@keyframes placeholderShift{
+  0%{transform:scale(1.05) translate(0,0)}
+  33%{transform:scale(1.08) translate(-1%,1%)}
+  66%{transform:scale(1.06) translate(1%,-1%)}
+  100%{transform:scale(1.05) translate(-0.5%,0.5%)}
+}
 </style>
 </head>
 <body>
@@ -488,12 +507,17 @@ footer{background:var(--anthracite);color:#fff;padding:5rem 6vw 2.5rem}
 </nav>
 
 <section id="accueil" class="hero">
-  <div class="hero-slides">
-    <div class="hero-slide active"></div>
-    <div class="hero-slide"></div>
-    <div class="hero-slide"></div>
-  </div>
-  <div class="hero-overlay"></div>
+  <!-- VIDEO: uncomment and add video/hero.mp4 when ready
+<div class="hero-video-wrap">
+  <video class="hero-video" autoplay muted loop playsinline>
+    <source src="video/hero.mp4" type="video/mp4">
+  </video>
+</div>
+-->
+<div class="hero-placeholder">
+  <div class="hero-placeholder-inner"></div>
+</div>
+<div class="hero-overlay"></div>
   <div class="hero-content">
     <div class="hero-tag"><div class="sig-flag"><span></span><span></span><span></span></div>Entreprise française &middot; Saint-Étienne</div>
     <h1>Menuisier agenceur<br><span>depuis 1936</span></h1>
@@ -508,9 +532,7 @@ footer{background:var(--anthracite);color:#fff;padding:5rem 6vw 2.5rem}
     <div class="hs"><span class="hs-n">3</span><span class="hs-l">Générations</span></div>
     <div class="hs"><span class="hs-n">88</span><span class="hs-l">Ans d'expertise</span></div>
   </div>
-  <div class="hero-dots">
-    <button class="hero-dot active"></button><button class="hero-dot"></button><button class="hero-dot"></button>
-  </div>
+  
 </section>
 
 <div class="ticker"><div class="ticker-inner">
@@ -753,7 +775,7 @@ document.addEventListener('DOMContentLoaded',()=>{
       <h4>Contact</h4>
       <ul>
         <li><a href="tel:0477323650">04 77 32 36 50</a></li>
-        <li><a href="mailto:info@planforet.com">info@planforet.com</a></li>
+        <li><a href="/cdn-cgi/l/email-protection#ddb4b3bbb29dadb1bcb3bbb2afb8a9f3beb2b0"><span class="__cf_email__" data-cfemail="f59c9b939ab58599949b939a879081db969a98">[email&#160;protected]</span></a></li>
         <li><a href="contact.html">Devis gratuit</a></li>
         <li><a href="mentions-legales.html">Mentions légales</a></li>
         <li><a href="politique-confidentialite.html">Confidentialité</a></li>
@@ -775,7 +797,7 @@ document.addEventListener('DOMContentLoaded',()=>{
     <button class="cbtn cbtn-ok" id="c-ok">Accepter</button>
   </div>
 </div>
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 document.addEventListener('DOMContentLoaded',()=>{
   const nav=document.getElementById('nav');
   if(!nav.classList.contains('solid'))
@@ -790,9 +812,4 @@ document.addEventListener('DOMContentLoaded',()=>{
   document.querySelectorAll('[data-count]').forEach(el=>co.observe(el));
   const b=document.getElementById('cookie');
   if(!localStorage.getItem('pf-ck'))setTimeout(()=>b?.classList.add('show'),2000);
-  document.getElementById('c-ok')?.addEventListener('click',()=>{localStorage.setItem('pf-ck','ok');b.classList.remove('show')});
-  document.getElementById('c-no')?.addEventListener('click',()=>{localStorage.setItem('pf-ck','no');b.classList.remove('show')});
-});
-</script>
-</body>
-</html>
+  document.getElementById('c-ok')?.addEventListe
