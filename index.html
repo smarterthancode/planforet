@@ -455,15 +455,10 @@ footer{background:var(--anthracite);color:#fff;padding:5rem 6vw 2.5rem}
 </nav>
 
 <section id="accueil" class="hero">
-  <!-- VIDEO: uncomment and add video/hero.mp4 when ready
   <div class="hero-video-wrap">
     <video class="hero-video" autoplay muted loop playsinline>
-      <source src="video/hero.mp4" type="video/mp4">
+      <source src="video/Planforet.mp4" type="video/mp4">
     </video>
-  </div>
-  -->
-  <div class="hero-placeholder">
-    <div class="hero-placeholder-inner"></div>
   </div>
   <div class="hero-overlay"></div>
   <div class="hero-content">
@@ -716,7 +711,7 @@ footer{background:var(--anthracite);color:#fff;padding:5rem 6vw 2.5rem}
       <h4>Contact</h4>
       <ul>
         <li><a href="tel:0477323650">04 77 32 36 50</a></li>
-        <li><a href="mailto:info@planforet.com">info@planforet.com</a></li>
+        <li><a href="/cdn-cgi/l/email-protection#472e29212807372b262921283522336924282a"><span class="__cf_email__" data-cfemail="325b5c545d72425e535c545d4057461c515d5f">[email&#160;protected]</span></a></li>
         <li><a href="contact.html">Devis gratuit</a></li>
         <li><a href="mentions-legales.html">Mentions légales</a></li>
         <li><a href="politique-confidentialite.html">Confidentialité</a></li>
@@ -738,7 +733,7 @@ footer{background:var(--anthracite);color:#fff;padding:5rem 6vw 2.5rem}
     <button class="cbtn cbtn-ok" id="c-ok">Accepter</button>
   </div>
 </div>
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 document.addEventListener('DOMContentLoaded',()=>{
   const nav=document.getElementById('nav');
   if(!nav.classList.contains('solid'))
@@ -778,13 +773,4 @@ document.addEventListener('DOMContentLoaded',()=>{
   var lc=document.querySelector('.logo-c');
   function update(){
     var solid=nav.classList.contains('scrolled')||nav.classList.contains('solid');
-    if(lw) lw.style.display=solid?'none':'block';
-    if(lc) lc.style.display=solid?'block':'none';
-  }
-  update();
-  var obs=new MutationObserver(update);
-  obs.observe(nav,{attributes:true,attributeFilter:['class']});
-})();
-</script>
-</body>
-</html>
+    if(lw)
