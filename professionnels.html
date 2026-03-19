@@ -193,24 +193,33 @@ html.js-ready .reveal.on{opacity:1;transform:none}
     <img id="logo-c" src="img/logo-color.png" alt="planForet">
   </a>
   <ul class="nav-links" id="navlinks">
+    <li><a href="professionnels.html">Accueil</a></li>
+    <li><a href="realisations-pro.html">R&#233;alisations pro</a></li>
     <li><a href="histoire.html">L'entreprise</a></li>
-    <li>
-      <a href="realisations.html">R&#233;alisations <span class="nav-arr">&#9662;</span></a>
-      <div class="dropdown">
-        <a href="cuisines.html">Cuisines</a>
-        <a href="bibliotheques.html">Biblioth&#232;ques</a>
-        <a href="dressings.html">Dressings &amp; Chambres</a>
-        <a href="salles-de-bains.html">Salles de bains</a>
-        <a href="escaliers.html">Escaliers</a>
-        <div class="dropdown-div"></div>
-        <a href="professionnel.html">Espace Professionnel</a>
-        <a href="realisations.html">Toutes les r&#233;alisations</a>
-      </div>
-    </li>
-    <li><a href="particuliers.html">Particuliers</a></li>
-    <li><a href="professionnels.html">Professionnels</a></li>
-    <li><a href="architectes.html">Architectes</a></li>
-    <li><a href="contact.html" class="nav-cta">Devis gratuit</a></li>
+    <li><a href="contact.html" class="nav-cta">Demander un devis</a></li>
+    <li><div style="position:relative;margin-left:.5rem" id="seg-switcher">
+  <button onclick="document.getElementById('seg-menu').classList.toggle('open')" style="display:flex;align-items:center;gap:6px;padding:7px 14px;border:1px solid rgba(255,255,255,.4);background:rgba(255,255,255,.1);font-family:'Barlow Condensed',sans-serif;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:#fff;cursor:pointer;transition:.2s" id="seg-btn">
+    <span style="font-size:.55rem">&#9650;</span> Professionnels
+  </button>
+  <div id="seg-menu" style="position:absolute;top:calc(100% + 6px);right:0;background:#fff;border:1px solid var(--gris-clair);border-top:3px solid var(--bleu);min-width:180px;padding:.3rem 0;display:none;box-shadow:0 8px 24px rgba(0,0,0,.1);z-index:100">
+    <a href="index.html" style="display:block;padding:.5rem 1rem;font-family:'Barlow Condensed',sans-serif;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--anthracite);transition:.15s;white-space:nowrap">Général</a><a href="particuliers.html" style="display:block;padding:.5rem 1rem;font-family:'Barlow Condensed',sans-serif;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--anthracite);transition:.15s;white-space:nowrap">Particuliers</a><a href="professionnels.html" style="display:block;padding:.5rem 1rem;font-family:'Barlow Condensed',sans-serif;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;background:var(--bleu);color:#fff;transition:.15s;white-space:nowrap">Professionnels</a><a href="architectes.html" style="display:block;padding:.5rem 1rem;font-family:'Barlow Condensed',sans-serif;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--anthracite);transition:.15s;white-space:nowrap">Architectes</a>
+  </div>
+</div>
+<script>
+document.addEventListener('click',function(e){
+  var sw=document.getElementById('seg-switcher');
+  if(sw&&!sw.contains(e.target)){
+    var m=document.getElementById('seg-menu');
+    if(m)m.classList.remove('open');
+  }
+});
+document.getElementById('seg-menu').addEventListener('click',function(){
+  this.classList.remove('open');
+});
+var style=document.createElement('style');
+style.textContent='#seg-menu.open{display:block!important}#seg-btn:hover{background:rgba(255,255,255,.2)!important}#nav.scrolled #seg-btn{color:var(--anthracite)!important;border-color:var(--gris-clair)!important;background:transparent!important}#seg-menu a:hover{background:var(--bleu-pale)!important;color:var(--bleu)!important}';
+document.head.appendChild(style);
+</script></li>
   </ul>
   <button class="hamburger" id="burger"><span></span><span></span><span></span></button>
 </nav>
