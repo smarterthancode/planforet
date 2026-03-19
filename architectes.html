@@ -1,24 +1,30 @@
 <!DOCTYPE html>
-<html lang="fr" class="no-js">
+<html lang="fr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="planForet pour les architectes — Partenaire technique pr&#233;cision &#177;0,5&#160;mm, lecture DWG, DOE complet &#224; Saint-&#201;tienne depuis 1936.">
-<title>Pour les architectes — planForet Menuisier agenceur depuis 1936</title>
+<meta name="description" content="planForet pour les architectes — Partenaire technique précision ±0,5mm, lecture DWG, DOE complet à Saint-Étienne depuis 1936.">
+<title>Architectes — planForet Menuisier agenceur depuis 1936</title>
 <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Barlow+Condensed:wght@400;500;600&family=Barlow:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{font-size:16px;scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
-body{font-family:'Barlow',sans-serif;background:#fff;color:#2C2929;overflow-x:hidden;line-height:1.65}
+body{font-family:'Barlow',sans-serif;background:#fff;color:#111111;overflow-x:hidden;line-height:1.65}
 a{color:inherit;text-decoration:none}
 ul{list-style:none}
-h1,h2,h3{font-family:'Bree Serif',serif;font-weight:400;line-height:1.15}
+h1,h2,h3{font-family:'Bree Serif',serif;font-weight:400;line-height:1.1;letter-spacing:-.02em}
+
 :root{
-  --bleu:#008ED2;--bleu2:#274E7D;
-  --bleu-pale:#E8F4FB;--bleu-pale2:#D0E9F6;
-  --gris:#64696D;--gris-clair:#D4D5D8;
-  --anthracite:#2C2929;--fond:#F7F9FB;--fond2:#EEF4F9;
-  --bleu-france:#2C4390;--rouge-france:#C20E1A;
+  --noir:#111111;
+  --gris-f:#4A4A4A;
+  --gris-m:#9A9A9A;
+  --gris-clair:#E5E5E5;
+  --fond:#F5F5F5;
+  --blanc:#FFFFFF;
+  --accent:#1D3557;
+  --accent2:#162740;
+  --bleu-france:#2C4390;
+  --rouge-france:#C20E1A;
 }
 
 /* NAV */
@@ -26,165 +32,214 @@ h1,h2,h3{font-family:'Bree Serif',serif;font-weight:400;line-height:1.15}
   position:fixed;top:0;left:0;right:0;z-index:1000;
   display:flex;align-items:center;justify-content:space-between;
   padding:0 5vw;height:76px;
-  background:rgba(39,78,125,0.6);
-  backdrop-filter:blur(6px);
+  background:rgba(17,17,17,0.75);
+  backdrop-filter:blur(8px);
   transition:background .35s,height .35s,box-shadow .35s;
+  border-bottom:1px solid rgba(255,255,255,.06);
 }
-#nav.scrolled{background:#fff;height:64px;box-shadow:0 1px 12px rgba(0,0,0,.1)}
+#nav.scrolled{background:#fff;height:64px;box-shadow:none;border-bottom:1px solid var(--gris-clair)}
 .nav-logo{display:flex;align-items:center;position:relative;height:44px;min-width:180px}
-#logo-w{height:38px;width:auto;position:absolute;left:0;top:50%;transform:translateY(-50%);transition:opacity .3s;opacity:1}
-#logo-c{height:38px;width:auto;position:absolute;left:0;top:50%;transform:translateY(-50%);transition:opacity .3s;opacity:0}
-.nav-links{display:flex;align-items:center;gap:2rem}
+#logo-w{height:36px;width:auto;position:absolute;left:0;top:50%;transform:translateY(-50%);transition:opacity .3s;opacity:1}
+#logo-c{height:36px;width:auto;position:absolute;left:0;top:50%;transform:translateY(-50%);transition:opacity .3s;opacity:0}
+.nav-links{display:flex;align-items:center;gap:2.5rem}
 .nav-links>li{position:relative}
-.nav-links>li>a{font-family:'Barlow Condensed',sans-serif;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.9);transition:color .2s;padding:.5rem 0;display:flex;align-items:center;gap:4px}
-#nav.scrolled .nav-links>li>a{color:var(--anthracite)}
-.nav-links>li>a:hover{opacity:.75}
+.nav-links>li>a{font-family:'Barlow Condensed',sans-serif;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.75);transition:color .2s;padding:.5rem 0;display:flex;align-items:center;gap:4px}
+#nav.scrolled .nav-links>li>a{color:var(--gris-f)}
+.nav-links>li>a:hover{color:#fff}
+#nav.scrolled .nav-links>li>a:hover{color:var(--noir)}
+.nav-links>li::after{content:'';position:absolute;left:0;right:0;top:100%;height:12px}
 .nav-arr{font-size:.5rem;transition:transform .2s}
 .nav-links>li:hover .nav-arr{transform:rotate(180deg)}
-.nav-links>li::after{content:'';position:absolute;left:0;right:0;top:100%;height:12px}
-.dropdown{position:absolute;top:100%;left:0;background:#fff;border:1px solid var(--gris-clair);border-top:3px solid var(--bleu);min-width:220px;padding:.4rem 0;opacity:0;visibility:hidden;transform:translateY(-4px);transition:all .2s;pointer-events:none;box-shadow:0 8px 24px rgba(0,0,0,.08)}
+.dropdown{position:absolute;top:100%;left:0;background:#fff;border:none;border-top:2px solid var(--noir);min-width:220px;padding:.4rem 0;opacity:0;visibility:hidden;transform:translateY(-4px);transition:all .2s;pointer-events:none;box-shadow:0 12px 40px rgba(0,0,0,.1)}
 .nav-links>li:hover .dropdown{opacity:1;visibility:visible;transform:none;pointer-events:all}
-.dropdown a{display:block;padding:.6rem 1.2rem;font-family:'Barlow Condensed',sans-serif;font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;color:var(--anthracite);transition:all .15s}
-.dropdown a:hover{color:var(--bleu);background:var(--bleu-pale);padding-left:1.5rem}
+.dropdown a{display:block;padding:.6rem 1.2rem;font-family:'Barlow Condensed',sans-serif;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gris-f);transition:all .15s}
+.dropdown a:hover{color:var(--noir);background:var(--fond);padding-left:1.5rem}
 .dropdown-div{height:1px;background:var(--gris-clair);margin:.3rem 0}
-.nav-cta{font-family:'Barlow Condensed',sans-serif!important;font-size:.82rem!important;letter-spacing:.08em;text-transform:uppercase;background:var(--bleu)!important;color:#fff!important;padding:10px 24px!important;border:none!important;transition:background .2s!important;white-space:nowrap}
-.nav-cta:hover{background:var(--bleu2)!important}
+.nav-cta{font-family:'Barlow Condensed',sans-serif!important;font-size:.72rem!important;letter-spacing:.14em;text-transform:uppercase;border:1px solid rgba(255,255,255,.4)!important;color:#fff!important;padding:9px 22px!important;background:transparent!important;transition:all .2s!important;white-space:nowrap}
+.nav-cta:hover{background:#fff!important;color:var(--noir)!important;border-color:#fff!important}
+#nav.scrolled .nav-cta{border-color:var(--noir)!important;color:var(--noir)!important}
+#nav.scrolled .nav-cta:hover{background:var(--noir)!important;color:#fff!important}
 .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}
-.hamburger span{display:block;width:22px;height:2px;background:rgba(255,255,255,.9);transition:.3s}
-#nav.scrolled .hamburger span{background:var(--anthracite)}
+.hamburger span{display:block;width:22px;height:1px;background:rgba(255,255,255,.9);transition:.3s}
+#nav.scrolled .hamburger span{background:var(--noir)}
+
+/* SEGMENT SWITCHER */
+.seg-wrap{position:relative;margin-left:.5rem}
+.seg-btn{display:flex;align-items:center;gap:6px;padding:7px 14px;border:1px solid rgba(255,255,255,.2);background:transparent;font-family:'Barlow Condensed',sans-serif;font-size:.65rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.6);cursor:pointer;transition:.2s}
+#nav.scrolled .seg-btn{color:var(--gris-m);border-color:var(--gris-clair)}
+.seg-menu{position:absolute;top:calc(100% + 6px);right:0;background:#fff;border:none;border-top:2px solid var(--noir);min-width:180px;padding:.3rem 0;display:none;box-shadow:0 12px 40px rgba(0,0,0,.1);z-index:100}
+.seg-menu.open{display:block}
+.seg-menu a{display:block;padding:.55rem 1rem;font-family:'Barlow Condensed',sans-serif;font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gris-f);transition:.15s}
+.seg-menu a:hover{color:var(--noir);background:var(--fond)}
+.seg-menu a.active{background:var(--noir);color:#fff}
 
 /* HERO */
-.hero{position:relative;height:100vh;min-height:620px;display:flex;align-items:flex-end;background:#1a3a5c;overflow:hidden}
+.hero{position:relative;height:100vh;min-height:620px;display:flex;align-items:flex-end;background:#0A0A0A;overflow:hidden}
 .hero-video-wrap{position:absolute;inset:0;overflow:hidden;z-index:0}
-.hero-video{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);min-width:100%;min-height:100%;width:auto;height:auto;object-fit:cover}
-.hero-overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(to top,rgba(15,25,50,.75) 0%,rgba(15,25,50,.25) 60%,rgba(15,25,50,.1) 100%)}
-.hero-content{position:relative;z-index:2;padding:0 6vw 8vh;max-width:760px}
-.hero-tag{display:inline-flex;align-items:center;gap:10px;padding:6px 14px;border:1px solid rgba(255,255,255,.35);font-family:'Barlow Condensed',sans-serif;font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.9);margin-bottom:1.4rem}
-.sig-flag{display:flex;height:12px;width:20px;overflow:hidden;flex-shrink:0}
+.hero-video{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);min-width:100%;min-height:100%;width:auto;height:auto;object-fit:cover;filter:grayscale(30%)}
+.hero-overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(to top,rgba(0,0,0,.88) 0%,rgba(0,0,0,.5) 50%,rgba(0,0,0,.2) 100%)}
+.hero-content{position:relative;z-index:2;padding:0 6vw 8vh;max-width:800px}
+.hero-overline{display:flex;align-items:center;gap:1rem;margin-bottom:1.5rem}
+.hero-overline-line{width:32px;height:1px;background:rgba(255,255,255,.4)}
+.hero-overline-txt{font-family:'Barlow Condensed',sans-serif;font-size:.68rem;letter-spacing:.25em;text-transform:uppercase;color:rgba(255,255,255,.55)}
+.hero h1{font-size:clamp(3rem,7vw,6rem);color:#fff;margin-bottom:1.2rem;font-weight:400}
+.hero h1 em{font-style:normal;color:var(--gris-clair)}
+.hero-sub{font-size:1rem;color:rgba(255,255,255,.6);max-width:520px;margin-bottom:2.5rem;line-height:1.8;font-weight:400;letter-spacing:.01em}
+.hero-btns{display:flex;gap:1rem;flex-wrap:wrap}
+.btn-noir{display:inline-flex;align-items:center;gap:8px;padding:13px 28px;background:#fff;font-family:'Barlow Condensed',sans-serif;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--noir);transition:background .2s,color .2s}
+.btn-noir:hover{background:var(--gris-clair)}
+.btn-outline-w{display:inline-flex;align-items:center;gap:8px;padding:12px 26px;border:1px solid rgba(255,255,255,.3);font-family:'Barlow Condensed',sans-serif;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.75);transition:all .2s}
+.btn-outline-w:hover{border-color:#fff;color:#fff}
+.btn-outline{display:inline-flex;align-items:center;gap:8px;padding:12px 26px;border:1px solid var(--noir);font-family:'Barlow Condensed',sans-serif;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--noir);transition:all .2s;background:transparent}
+.btn-outline:hover{background:var(--noir);color:#fff}
+.hero-stats{position:absolute;right:0;top:0;bottom:0;display:flex;flex-direction:column;justify-content:center;background:rgba(255,255,255,.04);border-left:1px solid rgba(255,255,255,.08);z-index:2}
+.hs{padding:2rem 2.5rem;border-bottom:1px solid rgba(255,255,255,.06);text-align:center}
+.hs:last-child{border-bottom:none}
+.hs-n{font-family:'Bree Serif',serif;font-size:2.8rem;color:#fff;display:block;line-height:1}
+.hs-l{font-family:'Barlow Condensed',sans-serif;font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.35);display:block;margin-top:6px}
+
+/* TICKER */
+.ticker{background:var(--noir);padding:12px 0;overflow:hidden;border-top:none}
+.ticker-inner{display:flex;gap:3rem;white-space:nowrap;animation:tickX 35s linear infinite}
+.ti{display:inline-flex;align-items:center;gap:12px;flex-shrink:0}
+.ti-sep{width:1px;height:10px;background:rgba(255,255,255,.2)}
+.ti-txt{font-family:'Barlow Condensed',sans-serif;font-size:.68rem;letter-spacing:.24em;text-transform:uppercase;color:rgba(255,255,255,.45)}
+@keyframes tickX{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* STATS */
+.stats-bar{display:grid;grid-template-columns:repeat(4,1fr)}
+.sc{padding:2rem 1rem;text-align:center;border-right:1px solid var(--gris-clair);border-bottom:1px solid var(--gris-clair)}
+.sc:last-child{border-right:none}
+.sc-n{font-family:'Bree Serif',serif;font-size:clamp(2rem,3.5vw,2.8rem);color:var(--noir);display:block;line-height:1}
+.sc-l{font-family:'Barlow Condensed',sans-serif;font-size:.65rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gris-m);display:block;margin-top:6px}
+
+/* SECTIONS */
+.section{padding:7rem 6vw}
+.s-blanc{background:#fff}
+.s-fond{background:var(--fond)}
+.s-noir{background:var(--noir);color:#fff}
+.s-accent{background:var(--accent);color:#fff}
+
+/* LABELS */
+.label{display:inline-flex;align-items:center;gap:10px;font-family:'Barlow Condensed',sans-serif;font-size:.65rem;letter-spacing:.28em;text-transform:uppercase;color:var(--gris-m);font-weight:400;margin-bottom:1.2rem}
+.label::before{content:'';display:block;width:24px;height:1px;background:var(--gris-m)}
+.label.w{color:rgba(255,255,255,.4)}
+.label.w::before{background:rgba(255,255,255,.3)}
+.titre{color:var(--noir)}
+.titre span{color:var(--accent)}
+.titre.w{color:#fff}
+.titre.w span{color:var(--gris-clair)}
+.corps{font-size:1rem;color:var(--gris-f);line-height:1.8;margin-bottom:1rem}
+.corps.w{color:rgba(255,255,255,.6)}
+
+/* EXPERTISE CARDS */
+.expertise-grid{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--gris-clair);border-right:none;border-bottom:none}
+.exp-card{padding:2.5rem;border-right:1px solid var(--gris-clair);border-bottom:1px solid var(--gris-clair);transition:background .2s;position:relative;display:block;color:inherit;text-decoration:none;overflow:hidden}
+.exp-card::after{content:'';position:absolute;bottom:0;left:0;width:100%;height:2px;background:var(--noir);transform:scaleX(0);transform-origin:left;transition:transform .35s ease}
+.exp-card:hover{background:var(--fond)}
+.exp-card:hover::after{transform:scaleX(1)}
+.exp-num{font-family:'Barlow Condensed',sans-serif;font-size:.65rem;letter-spacing:.22em;color:var(--gris-m);margin-bottom:1.5rem;display:block}
+.exp-title{font-family:'Bree Serif',serif;font-size:1.15rem;color:var(--noir);margin-bottom:.8rem;line-height:1.2}
+.exp-desc{font-size:.88rem;color:var(--gris-f);line-height:1.7;margin-bottom:1.5rem}
+.exp-points{display:flex;flex-direction:column;gap:.4rem;margin-bottom:1.5rem}
+.exp-point{display:flex;align-items:center;gap:.7rem;font-size:.82rem;color:var(--gris-f)}
+.exp-dash{width:12px;height:1px;background:var(--gris-m);flex-shrink:0}
+.exp-cta{font-family:'Barlow Condensed',sans-serif;font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--noir);display:flex;align-items:center;gap:6px;transition:gap .2s}
+.exp-card:hover .exp-cta{gap:12px}
+
+/* SPECS TABLE */
+.specs-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--gris-clair);border-right:none;border-bottom:none}
+.spec-item{padding:2rem;border-right:1px solid var(--gris-clair);border-bottom:1px solid var(--gris-clair)}
+.spec-num{font-family:'Bree Serif',serif;font-size:2.2rem;color:var(--noir);display:block;line-height:1;margin-bottom:.4rem}
+.spec-unit{font-size:1rem;color:var(--gris-m)}
+.spec-label{font-family:'Barlow Condensed',sans-serif;font-size:.65rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gris-m);display:block;margin-bottom:.3rem}
+.spec-desc{font-size:.85rem;color:var(--gris-f);line-height:1.6}
+
+/* PROCESS */
+.process-list{display:flex;flex-direction:column;gap:0;border-top:1px solid var(--gris-clair)}
+.process-row{display:grid;grid-template-columns:80px 1fr;gap:0;border-bottom:1px solid var(--gris-clair);transition:background .2s}
+.process-row:hover{background:var(--fond)}
+.process-n{padding:1.5rem;display:flex;align-items:center;justify-content:center;border-right:1px solid var(--gris-clair);font-family:'Barlow Condensed',sans-serif;font-size:.65rem;letter-spacing:.2em;color:var(--gris-m)}
+.process-body{padding:1.5rem 2rem;display:flex;align-items:center;gap:3rem;flex-wrap:wrap}
+.process-title{font-family:'Bree Serif',serif;font-size:1rem;color:var(--noir);min-width:180px}
+.process-desc{font-size:.88rem;color:var(--gris-f);line-height:1.65;flex:1}
+
+/* REALISATIONS GRID */
+.real-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--gris-clair)}
+.real-item{position:relative;overflow:hidden;height:280px;display:block;background:var(--fond)}
+.real-item-bg{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform .6s ease;filter:grayscale(20%)}
+.real-item:hover .real-item-bg{transform:scale(1.04);filter:grayscale(0)}
+.real-item-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.7) 0%,transparent 55%);opacity:.7;transition:opacity .3s}
+.real-item:hover .real-item-overlay{opacity:1}
+.real-item-body{position:absolute;bottom:0;left:0;right:0;padding:1.5rem;transform:translateY(4px);transition:transform .3s}
+.real-item:hover .real-item-body{transform:none}
+.real-item-cat{font-family:'Barlow Condensed',sans-serif;font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:.3rem}
+.real-item-name{font-family:'Bree Serif',serif;font-size:1.1rem;color:#fff}
+
+/* REVIEWS */
+.rev-card{background:#fff;border:1px solid var(--gris-clair);border-top:2px solid var(--noir);padding:2rem;position:relative;flex-shrink:0;width:360px}
+.rev-stars{color:var(--gris-m);font-size:.75rem;letter-spacing:.1em;margin-bottom:.8rem}
+.rev-text{font-size:.9rem;color:var(--gris-f);line-height:1.75;margin-bottom:1.2rem;font-style:italic}
+.rev-name{font-family:'Bree Serif',serif;font-size:.95rem;color:var(--noir)}
+.rev-detail{font-family:'Barlow Condensed',sans-serif;font-size:.65rem;letter-spacing:.12em;color:var(--gris-m);text-transform:uppercase;margin-top:3px}
+.rev-badge{position:absolute;top:.8rem;right:.8rem;font-family:'Barlow Condensed',sans-serif;font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gris-m);border:1px solid var(--gris-clair);padding:3px 8px}
+.rev-nav-btn{width:40px;height:40px;border:1px solid var(--gris-clair);background:transparent;color:var(--gris-f);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:.2s}
+.rev-nav-btn:hover{background:var(--noir);color:#fff;border-color:var(--noir)}
+
+/* CTA */
+.cta-band{background:var(--noir);padding:7rem 6vw;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;position:relative}
+.cta-overline{font-family:'Barlow Condensed',sans-serif;font-size:.65rem;letter-spacing:.28em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:1.2rem;display:flex;align-items:center;gap:10px}
+.cta-overline::before{content:'';display:block;width:24px;height:1px;background:rgba(255,255,255,.2)}
+.cta-h2{font-family:'Bree Serif',serif;font-size:clamp(1.8rem,3.5vw,3rem);color:#fff;line-height:1.1;margin-bottom:1.2rem}
+.cta-sub{font-size:1rem;color:rgba(255,255,255,.5);line-height:1.75}
+.cta-right{display:flex;flex-direction:column;gap:2rem;border-left:1px solid rgba(255,255,255,.08);padding-left:5rem}
+.cta-tel{font-family:'Bree Serif',serif;font-size:2.4rem;color:#fff;display:block;transition:color .2s}
+.cta-tel:hover{color:var(--gris-clair)}
+.cta-tel-label{font-family:'Barlow Condensed',sans-serif;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:.3rem;display:block}
+
+/* FOOTER */
+footer{background:#0A0A0A;color:#fff;padding:5rem 6vw 2.5rem;border-top:1px solid rgba(255,255,255,.05)}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;margin-bottom:3rem}
+.footer-logo{height:34px;width:auto;margin-bottom:1.2rem;opacity:.9}
+.footer-tagline{font-size:.85rem;color:rgba(255,255,255,.3);line-height:1.7;max-width:240px;margin-top:.5rem}
+.footer-sig{display:inline-flex;align-items:center;gap:.7rem;font-family:'Barlow Condensed',sans-serif;font-size:.65rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.2);margin-top:1.2rem}
+.sig-flag{display:flex;height:10px;width:16px;overflow:hidden;flex-shrink:0}
 .sig-flag span{flex:1;display:block}
 .sig-flag span:nth-child(1){background:var(--bleu-france)}
 .sig-flag span:nth-child(2){background:#fff}
 .sig-flag span:nth-child(3){background:var(--rouge-france)}
-.hero h1{font-size:clamp(2.8rem,6.5vw,5.5rem);color:#fff;margin-bottom:1rem}
-.hero h1 span{color:#9DD8F5}
-.hero-sub{font-size:1.05rem;color:rgba(255,255,255,.8);max-width:500px;margin-bottom:2rem;line-height:1.7}
-.hero-btns{display:flex;gap:1rem;flex-wrap:wrap}
-.btn-bleu{display:inline-flex;align-items:center;gap:8px;padding:13px 28px;background:var(--bleu);font-family:'Barlow Condensed',sans-serif;font-size:.88rem;letter-spacing:.1em;text-transform:uppercase;color:#fff;transition:background .2s}
-.btn-bleu:hover{background:var(--bleu2)}
-.btn-outline-w{display:inline-flex;align-items:center;gap:8px;padding:12px 26px;border:2px solid rgba(255,255,255,.6);font-family:'Barlow Condensed',sans-serif;font-size:.88rem;letter-spacing:.1em;text-transform:uppercase;color:#fff;transition:all .2s}
-.btn-outline-w:hover{border-color:#fff;background:rgba(255,255,255,.1)}
-.btn-outline{display:inline-flex;align-items:center;gap:8px;padding:12px 26px;border:2px solid var(--bleu);font-family:'Barlow Condensed',sans-serif;font-size:.88rem;letter-spacing:.1em;text-transform:uppercase;color:var(--bleu);transition:all .2s;background:transparent}
-.btn-outline:hover{background:var(--bleu);color:#fff}
-.hero-stats{position:absolute;right:0;top:0;bottom:0;display:flex;flex-direction:column;justify-content:center;background:rgba(0,0,0,.25);backdrop-filter:blur(6px);border-left:1px solid rgba(255,255,255,.15);z-index:2}
-.hs{padding:2rem 2.5rem;border-bottom:1px solid rgba(255,255,255,.1);text-align:center}
-.hs:last-child{border-bottom:none}
-.hs-n{font-family:'Bree Serif',serif;font-size:2.8rem;color:#fff;display:block;line-height:1}
-.hs-l{font-family:'Barlow Condensed',sans-serif;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.65);display:block;margin-top:5px}
-
-/* TICKER */
-.ticker{background:var(--bleu);padding:11px 0;overflow:hidden}
-.ticker-inner{display:flex;gap:2.5rem;white-space:nowrap;animation:tickX 30s linear infinite}
-.ti{display:inline-flex;align-items:center;gap:10px;flex-shrink:0}
-.ti-sep{width:4px;height:4px;background:rgba(255,255,255,.5);border-radius:50%}
-.ti-txt{font-family:'Barlow Condensed',sans-serif;font-size:.75rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.9)}
-@keyframes tickX{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-
-/* STATS */
-.stats-bar{display:grid;grid-template-columns:repeat(4,1fr);background:var(--bleu2)}
-.sc{padding:1.8rem 1rem;text-align:center;border-right:1px solid rgba(255,255,255,.1)}
-.sc:last-child{border-right:none}
-.sc-n{font-family:'Bree Serif',serif;font-size:clamp(2rem,3.5vw,2.8rem);color:#fff;display:block;line-height:1}
-.sc-l{font-family:'Barlow Condensed',sans-serif;font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.7);display:block;margin-top:6px}
-
-/* SECTIONS */
-.section{padding:6rem 6vw}
-.s-blanc{background:#fff}
-.s-fond{background:var(--fond)}
-.label{display:inline-flex;align-items:center;gap:8px;font-family:'Barlow Condensed',sans-serif;font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--bleu);font-weight:600;margin-bottom:.8rem}
-.label::before{content:'';display:block;width:20px;height:2px;background:var(--bleu)}
-.titre{color:var(--anthracite)}
-.titre span{color:var(--bleu)}
-.corps{font-size:1rem;color:var(--gris);line-height:1.75;margin-bottom:1rem}
-.card-bleu{background:var(--bleu-pale);border-left:4px solid var(--bleu);padding:1.5rem}
-.card-bleu .card-title{font-family:'Bree Serif',serif;font-size:1rem;color:var(--bleu2);margin-bottom:.4rem}
-.card-bleu .card-desc{font-size:.88rem;color:var(--gris);line-height:1.6}
-
-/* AUDIENCE */
-.audience-grid{display:grid;grid-template-columns:repeat(3,1fr)}
-.audience-card{padding:3rem 2.5rem;cursor:pointer;position:relative;border:1px solid var(--gris-clair);border-right:none;transition:background .25s;overflow:hidden;display:block;color:inherit}
-.audience-card:last-child{border-right:1px solid var(--gris-clair)}
-.audience-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--bleu);transform:scaleX(0);transform-origin:left;transition:transform .3s}
-.audience-card:hover::after{transform:scaleX(1)}
-.audience-card:hover{background:var(--bleu-pale)}
-.ac-badge{display:inline-block;font-family:'Barlow Condensed',sans-serif;font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:var(--bleu);background:var(--bleu-pale);padding:4px 12px;margin-bottom:1.2rem}
-.ac-title{font-family:'Bree Serif',serif;font-size:1.5rem;color:var(--anthracite);margin-bottom:.8rem;line-height:1.2}
-.ac-desc{font-size:.9rem;color:var(--gris);line-height:1.7;margin-bottom:1.5rem}
-.ac-list{display:flex;flex-direction:column;gap:.5rem;margin-bottom:2rem}
-.ac-item{display:flex;align-items:flex-start;gap:.7rem;font-size:.88rem;color:var(--gris)}
-.ac-dot{width:6px;height:6px;background:var(--bleu);border-radius:50%;flex-shrink:0;margin-top:7px}
-.ac-cta{font-family:'Barlow Condensed',sans-serif;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:var(--bleu);display:flex;align-items:center;gap:6px;transition:gap .2s;font-weight:600}
-.audience-card:hover .ac-cta{gap:12px}
-
-/* REVIEWS */
-.rev-card{background:#fff;border:1px solid var(--gris-clair);border-top:3px solid var(--bleu);padding:2rem;position:relative;flex-shrink:0;width:340px}
-.rev-stars{color:var(--bleu);font-size:.8rem;margin-bottom:.8rem}
-.rev-text{font-size:.92rem;color:var(--gris);line-height:1.7;margin-bottom:1.2rem;font-style:italic}
-.rev-name{font-family:'Bree Serif',serif;font-size:.95rem;color:var(--anthracite)}
-.rev-detail{font-family:'Barlow Condensed',sans-serif;font-size:.7rem;letter-spacing:.1em;color:var(--bleu);text-transform:uppercase;margin-top:2px}
-.rev-badge{position:absolute;top:.8rem;right:.8rem;font-family:'Barlow Condensed',sans-serif;font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--bleu);background:var(--bleu-pale);padding:3px 8px}
-.rev-nav-btn{width:40px;height:40px;border:2px solid var(--bleu);background:transparent;color:var(--bleu);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:.2s}
-.rev-nav-btn:hover{background:var(--bleu);color:#fff}
-
-/* CTA */
-.cta-band{background:var(--bleu);padding:5rem 6vw;display:grid;grid-template-columns:1fr auto;gap:3rem;align-items:center;position:relative;overflow:hidden}
-.cta-band::before{content:'planForet';font-family:'Bree Serif',serif;font-size:18vw;color:rgba(255,255,255,.04);position:absolute;right:-2vw;top:50%;transform:translateY(-50%);pointer-events:none;white-space:nowrap;line-height:1}
-.cta-tel{font-family:'Bree Serif',serif;font-size:2.2rem;color:#fff;display:block;margin:.5rem 0}
-.cta-tel-label{font-family:'Barlow Condensed',sans-serif;font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.7)}
-
-/* FOOTER */
-footer{background:#274E7D;color:#fff;padding:5rem 6vw 2.5rem}
-.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;margin-bottom:3rem}
-.footer-logo{height:38px;width:auto;margin-bottom:1rem}
-.footer-tagline{font-size:.88rem;color:rgba(255,255,255,.55);line-height:1.7;max-width:240px;margin-top:.5rem}
-.footer-sig{display:inline-flex;align-items:center;gap:.7rem;font-family:'Barlow Condensed',sans-serif;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-top:1rem}
-.footer-col h4{font-family:'Barlow Condensed',sans-serif;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:1.2rem;border-bottom:1px solid rgba(255,255,255,.08);padding-bottom:.6rem}
+.footer-col h4{font-family:'Barlow Condensed',sans-serif;font-size:.62rem;letter-spacing:.24em;text-transform:uppercase;color:rgba(255,255,255,.2);margin-bottom:1.2rem;padding-bottom:.5rem;border-bottom:1px solid rgba(255,255,255,.05)}
 .footer-col ul{display:flex;flex-direction:column;gap:.55rem}
-.footer-col ul a{font-size:.88rem;color:rgba(255,255,255,.6);transition:.2s}
-.footer-col ul a:hover{color:#fff}
-.footer-bottom{padding-top:2rem;border-top:1px solid rgba(255,255,255,.08);display:flex;justify-content:space-between;flex-wrap:wrap;gap:.8rem;align-items:center}
-.footer-bottom p,.footer-bottom a{font-size:.78rem;color:rgba(255,255,255,.4)}
-.footer-bottom a:hover{color:var(--bleu)}
+.footer-col ul a{font-size:.85rem;color:rgba(255,255,255,.4);transition:.2s}
+.footer-col ul a:hover{color:rgba(255,255,255,.9)}
+.footer-bottom{padding-top:2rem;border-top:1px solid rgba(255,255,255,.05);display:flex;justify-content:space-between;flex-wrap:wrap;gap:.8rem;align-items:center}
+.footer-bottom p,.footer-bottom a{font-size:.75rem;color:rgba(255,255,255,.2)}
+.footer-bottom a:hover{color:rgba(255,255,255,.6)}
 
 /* COOKIE */
-#cookie{position:fixed;bottom:0;left:0;right:0;z-index:9999;background:#fff;border-top:3px solid var(--bleu);padding:1.2rem 6vw;display:flex;align-items:center;justify-content:space-between;gap:1.5rem;box-shadow:0 -4px 20px rgba(0,0,0,.08);transform:translateY(100%);transition:transform .4s}
+#cookie{position:fixed;bottom:0;left:0;right:0;z-index:9999;background:#fff;border-top:2px solid var(--noir);padding:1.2rem 6vw;display:flex;align-items:center;justify-content:space-between;gap:1.5rem;box-shadow:0 -4px 20px rgba(0,0,0,.06);transform:translateY(100%);transition:transform .4s}
 #cookie.show{transform:translateY(0)}
-#cookie p{font-size:.88rem;color:var(--gris);max-width:560px}
-#cookie a{color:var(--bleu)}
-.cbtn{padding:9px 20px;font-family:'Barlow Condensed',sans-serif;font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;transition:.2s}
-.cbtn-ok{background:var(--bleu);color:#fff;border:none}
-.cbtn-ok:hover{background:var(--bleu2)}
-.cbtn-no{background:none;border:1px solid var(--gris-clair);color:var(--gris)}
+#cookie p{font-size:.85rem;color:var(--gris-f);max-width:560px}
+#cookie a{color:var(--noir);text-decoration:underline}
+.cbtn{padding:9px 20px;font-family:'Barlow Condensed',sans-serif;font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;cursor:pointer;transition:.2s}
+.cbtn-ok{background:var(--noir);color:#fff;border:none}
+.cbtn-ok:hover{background:var(--gris-f)}
+.cbtn-no{background:none;border:1px solid var(--gris-clair);color:var(--gris-f)}
 
 /* REVEAL */
-.reveal{opacity:1;transform:none;transition:opacity .6s,transform .6s}
-.reveal.on{opacity:1;transform:none}
+.reveal{opacity:1;transform:none;transition:opacity .7s,transform .7s}
+html.js-ready .reveal{opacity:0;transform:translateY(16px)}
+html.js-ready .reveal.on{opacity:1;transform:none}
 .d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}
 
 /* MOBILE */
-.mob-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:999}
+.mob-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:999}
 .mob-overlay.on{display:block}
-@media(max-width:1024px){.hero-stats{display:none}.audience-grid{grid-template-columns:1fr}.cta-band{grid-template-columns:1fr}.footer-grid{grid-template-columns:1fr 1fr}}
-@media(max-width:768px){.nav-links{display:none}.hamburger{display:flex}.nav-links.open{display:flex;flex-direction:column;position:fixed;top:64px;left:0;right:0;background:#fff;padding:1.5rem 6vw;gap:1rem;z-index:998;border-top:3px solid var(--bleu);box-shadow:0 8px 20px rgba(0,0,0,.08)}.nav-links.open>li>a{color:var(--anthracite)!important}.section{padding:4rem 5vw}.stats-bar{grid-template-columns:1fr 1fr}.footer-grid{grid-template-columns:1fr}}
-
-a[style*="border:1px solid var(--gris-clair)"]:hover{box-shadow:0 8px 30px rgba(0,142,210,.12);transform:translateY(-2px)}
-a[style*="border:1px solid var(--gris-clair)"]{transition:box-shadow .25s,transform .25s}
-
-html.js-ready .reveal{opacity:0;transform:translateY(20px)}
-html.js-ready .reveal.on{opacity:1;transform:none}
+@media(max-width:1024px){.hero-stats{display:none}.expertise-grid{grid-template-columns:1fr}.cta-band{grid-template-columns:1fr}.cta-right{border-left:none;padding-left:0;border-top:1px solid rgba(255,255,255,.08);padding-top:2rem}.footer-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:768px){.nav-links{display:none}.hamburger{display:flex}.nav-links.open{display:flex;flex-direction:column;position:fixed;top:64px;left:0;right:0;background:#fff;padding:1.5rem 6vw;gap:1rem;z-index:998;border-top:2px solid var(--noir)}.nav-links.open>li>a{color:var(--noir)!important}.section{padding:4rem 5vw}.stats-bar{grid-template-columns:1fr 1fr}.footer-grid{grid-template-columns:1fr}.real-grid{grid-template-columns:1fr}.specs-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
-
 <div class="mob-overlay" id="overlay"></div>
 
 <nav id="nav">
@@ -197,34 +252,25 @@ html.js-ready .reveal.on{opacity:1;transform:none}
     <li><a href="realisations-architectes.html">R&#233;alisations</a></li>
     <li><a href="histoire.html">L'atelier</a></li>
     <li><a href="contact.html" class="nav-cta">Soumettre des plans</a></li>
-    <li><div style="position:relative;margin-left:.5rem" id="seg-switcher">
-  <button onclick="document.getElementById('seg-menu').classList.toggle('open')" style="display:flex;align-items:center;gap:6px;padding:7px 14px;border:1px solid rgba(255,255,255,.4);background:rgba(255,255,255,.1);font-family:'Barlow Condensed',sans-serif;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:#fff;cursor:pointer;transition:.2s" id="seg-btn">
-    <span style="font-size:.55rem">&#9650;</span> Architectes
-  </button>
-  <div id="seg-menu" style="position:absolute;top:calc(100% + 6px);right:0;background:#fff;border:1px solid var(--gris-clair);border-top:3px solid var(--bleu);min-width:180px;padding:.3rem 0;display:none;box-shadow:0 8px 24px rgba(0,0,0,.1);z-index:100">
-    <a href="index.html" style="display:block;padding:.5rem 1rem;font-family:'Barlow Condensed',sans-serif;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--anthracite);transition:.15s;white-space:nowrap">Général</a><a href="particuliers.html" style="display:block;padding:.5rem 1rem;font-family:'Barlow Condensed',sans-serif;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--anthracite);transition:.15s;white-space:nowrap">Particuliers</a><a href="professionnels.html" style="display:block;padding:.5rem 1rem;font-family:'Barlow Condensed',sans-serif;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--anthracite);transition:.15s;white-space:nowrap">Professionnels</a><a href="architectes.html" style="display:block;padding:.5rem 1rem;font-family:'Barlow Condensed',sans-serif;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;background:var(--bleu);color:#fff;transition:.15s;white-space:nowrap">Architectes</a>
-  </div>
-</div>
-<script>
-document.addEventListener('click',function(e){
-  var sw=document.getElementById('seg-switcher');
-  if(sw&&!sw.contains(e.target)){
-    var m=document.getElementById('seg-menu');
-    if(m)m.classList.remove('open');
-  }
-});
-document.getElementById('seg-menu').addEventListener('click',function(){
-  this.classList.remove('open');
-});
-var style=document.createElement('style');
-style.textContent='#seg-menu.open{display:block!important}#seg-btn:hover{background:rgba(255,255,255,.2)!important}#nav.scrolled #seg-btn{color:var(--anthracite)!important;border-color:var(--gris-clair)!important;background:transparent!important}#seg-menu a:hover{background:var(--bleu-pale)!important;color:var(--bleu)!important}';
-document.head.appendChild(style);
-</script></li>
+    <li>
+      <div class="seg-wrap" id="seg-switcher">
+        <button class="seg-btn" id="seg-btn" onclick="document.getElementById('seg-menu').classList.toggle('open')">
+          <span style="font-size:.5rem">&#9650;</span> Architectes
+        </button>
+        <div class="seg-menu" id="seg-menu">
+          <a href="index.html">G&#233;n&#233;ral</a>
+          <a href="particuliers.html">Particuliers</a>
+          <a href="professionnels.html">Professionnels</a>
+          <a href="architectes.html" class="active">Architectes</a>
+        </div>
+      </div>
+    </li>
   </ul>
   <button class="hamburger" id="burger"><span></span><span></span><span></span></button>
 </nav>
 
-<section id="accueil" class="hero">
+<!-- HERO -->
+<section class="hero">
   <div class="hero-video-wrap">
     <video class="hero-video" autoplay muted loop playsinline preload="auto">
       <source src="video/Planforet.mp4" type="video/mp4">
@@ -232,191 +278,230 @@ document.head.appendChild(style);
   </div>
   <div class="hero-overlay"></div>
   <div class="hero-content">
-    <div class="hero-tag"><div class="sig-flag"><span></span><span></span><span></span></div>Entreprise fran&#231;aise &middot; Saint-&#201;tienne</div>
-    <h1>Votre partenaire<br><span>technique de pr&#233;cision</span></h1>
-    <p class="hero-sub">Vous concevez, nous r&#233;alisons. Lecture de plans DWG, prototypage, tol&#233;rance &#177;0,5&#160;mm et DOE complet &#224; la livraison.</p>
+    <div class="hero-overline"><div class="hero-overline-line"></div><span class="hero-overline-txt">Partenaire technique &mdash; Saint-&#201;tienne depuis 1936</span></div>
+    <h1>Votre partenaire<br><em>de pr&#233;cision</em></h1>
+    <p class="hero-sub">Vous concevez, nous r&#233;alisons. Lecture de plans DWG, fabrication CNC &#177;0,5&nbsp;mm, coordination chantier et DOE complet &#224; chaque livraison.</p>
     <div class="hero-btns">
-      <a href="contact.html" class="btn-bleu">Soumettre des plans &#8594;</a>
-      <a href="realisations.html" class="btn-outline-w">Voir nos r&#233;alisations</a>
+      <a href="contact.html" class="btn-noir">Soumettre des plans &#8594;</a>
+      <a href="realisations-architectes.html" class="btn-outline-w">Voir les r&#233;alisations</a>
     </div>
   </div>
   <div class="hero-stats">
-    <div class="hs"><span class="hs-n">1936</span><span class="hs-l">Fond&#233;e en</span></div>
-    <div class="hs"><span class="hs-n">3</span><span class="hs-l">G&#233;n&#233;rations</span></div>
-    <div class="hs"><span class="hs-n">88</span><span class="hs-l">Ans d'expertise</span></div>
+    <div class="hs"><span class="hs-n">&#177;0,5</span><span class="hs-l">mm tol&#233;rance</span></div>
+    <div class="hs"><span class="hs-n">88</span><span class="hs-l">ans d'atelier</span></div>
+    <div class="hs"><span class="hs-n">DOE</span><span class="hs-l">livr&#233; syst&#233;matique</span></div>
   </div>
 </section>
 
+<!-- TICKER -->
 <div class="ticker"><div class="ticker-inner">
-  <div class="ti"><div class="ti-sep"></div><span class="ti-txt">Menuiserie bois</span></div>
-  <div class="ti"><div class="ti-sep"></div><span class="ti-txt">Fabrication sur-mesure</span></div>
-  <div class="ti"><div class="ti-sep"></div><span class="ti-txt">Menuiserie mixte bois / alu</span></div>
-  <div class="ti"><div class="ti-sep"></div><span class="ti-txt">Volets roulants</span></div>
-  <div class="ti"><div class="ti-sep"></div><span class="ti-txt">Cuisines &amp; escaliers</span></div>
-  <div class="ti"><div class="ti-sep"></div><span class="ti-txt">Certifi&#233; RGE &amp; Qualibat</span></div>
-  <div class="ti"><div class="ti-sep"></div><span class="ti-txt">Saint-&#201;tienne depuis 1936</span></div>
-  <div class="ti"><div class="ti-sep"></div><span class="ti-txt">Menuiserie bois</span></div>
-  <div class="ti"><div class="ti-sep"></div><span class="ti-txt">Fabrication sur-mesure</span></div>
-  <div class="ti"><div class="ti-sep"></div><span class="ti-txt">Menuiserie mixte bois / alu</span></div>
-  <div class="ti"><div class="ti-sep"></div><span class="ti-txt">Volets roulants</span></div>
-  <div class="ti"><div class="ti-sep"></div><span class="ti-txt">Cuisines &amp; escaliers</span></div>
-  <div class="ti"><div class="ti-sep"></div><span class="ti-txt">Certifi&#233; RGE &amp; Qualibat</span></div>
-  <div class="ti"><div class="ti-sep"></div><span class="ti-txt">Saint-&#201;tienne depuis 1936</span></div>
+  <div class="ti"><div class="ti-sep"></div><span class="ti-txt">Lecture DWG / PDF / IFC</span></div>
+  <div class="ti"><div class="ti-sep"></div><span class="ti-txt">Tol&#233;rance &#177;0,5 mm</span></div>
+  <div class="ti"><div class="ti-sep"></div><span class="ti-txt">CNC derni&#232;re g&#233;n&#233;ration</span></div>
+  <div class="ti"><div class="ti-sep"></div><span class="ti-txt">DOE complet livr&#233;</span></div>
+  <div class="ti"><div class="ti-sep"></div><span class="ti-txt">Coordination corps de m&#233;tier</span></div>
+  <div class="ti"><div class="ti-sep"></div><span class="ti-txt">Atelier 1&#160;500&#160;m&#178; Saint-&#201;tienne</span></div>
+  <div class="ti"><div class="ti-sep"></div><span class="ti-txt">Lecture DWG / PDF / IFC</span></div>
+  <div class="ti"><div class="ti-sep"></div><span class="ti-txt">Tol&#233;rance &#177;0,5 mm</span></div>
+  <div class="ti"><div class="ti-sep"></div><span class="ti-txt">CNC derni&#232;re g&#233;n&#233;ration</span></div>
+  <div class="ti"><div class="ti-sep"></div><span class="ti-txt">DOE complet livr&#233;</span></div>
+  <div class="ti"><div class="ti-sep"></div><span class="ti-txt">Coordination corps de m&#233;tier</span></div>
+  <div class="ti"><div class="ti-sep"></div><span class="ti-txt">Atelier 1&#160;500&#160;m&#178; Saint-&#201;tienne</span></div>
 </div></div>
 
+<!-- STATS -->
 <div class="stats-bar">
-  <div class="sc"><span class="sc-n" data-count="88">88</span><span class="sc-l">Ann&#233;es d'expertise</span></div>
-  <div class="sc"><span class="sc-n" data-count="3">3</span><span class="sc-l">G&#233;n&#233;rations d'artisans</span></div>
+  <div class="sc"><span class="sc-n" data-count="88">88</span><span class="sc-l">Ann&#233;es d'atelier</span></div>
+  <div class="sc"><span class="sc-n">&#177;0,5</span><span class="sc-l">mm tol&#233;rance CNC</span></div>
   <div class="sc"><span class="sc-n" data-count="5000">5000</span><span class="sc-l">Projets r&#233;alis&#233;s</span></div>
-  <div class="sc"><span class="sc-n" data-count="98">98</span><span class="sc-l">% clients satisfaits</span></div>
+  <div class="sc"><span class="sc-n">100%</span><span class="sc-l">DOE livr&#233; avec chaque chantier</span></div>
 </div>
 
-<section id="qui-etes-vous" class="section s-blanc" style="padding:4rem 6vw">
-  <div style="text-align:center;margin-bottom:2.5rem" class="reveal">
-    <div class="label" style="justify-content:center">Notre expertise technique</div>
-    <h2 class="titre" style="font-size:clamp(1.6rem,3vw,2.4rem)">Ce que nous apportons <span>&#224; votre projet</span></h2>
-  </div>
-  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem">
-    
-    <a href="contact.html" style="display:block;text-decoration:none;color:inherit;border:1px solid var(--gris-clair);overflow:hidden;transition:box-shadow .25s,transform .25s" class="reveal">
-      <div style="height:200px;background:var(--bleu-pale2);position:relative;overflow:hidden">
-        <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(39,78,125,.7) 0%,transparent 60%)"></div>
-        <div style="position:absolute;top:1rem;left:1rem;font-family:'Barlow Condensed',sans-serif;font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:#fff;background:rgba(0,0,0,.3);padding:3px 10px">Bureau d'&#233;tudes</div>
-        <div style="position:absolute;bottom:1rem;left:1rem;right:1rem;font-family:'Bree Serif',serif;font-size:1.2rem;color:#fff;line-height:1.2">Lecture &amp; analyse de plans</div>
-      </div>
-      <div style="padding:1.5rem">
-        <p style="font-size:.9rem;color:var(--gris);line-height:1.6;margin-bottom:1rem">Nous lisons vos plans DWG, PDF, croquis et revenons avec des questions techniques pr&#233;cises.</p>
-        <div style="display:flex;flex-direction:column;gap:.4rem;margin-bottom:1.2rem">
-          <div style="display:flex;align-items:center;gap:.6rem;font-size:.85rem;color:var(--gris)"><div style="width:5px;height:5px;background:var(--bleu);border-radius:50%;flex-shrink:0"></div>DWG, PDF, ArchiCAD, Revit</div><div style="display:flex;align-items:center;gap:.6rem;font-size:.85rem;color:var(--gris)"><div style="width:5px;height:5px;background:var(--bleu);border-radius:50%;flex-shrink:0"></div>Analyse technique approfondie</div><div style="display:flex;align-items:center;gap:.6rem;font-size:.85rem;color:var(--gris)"><div style="width:5px;height:5px;background:var(--bleu);border-radius:50%;flex-shrink:0"></div>R&#233;ponse sous 48h</div>
-        </div>
-        <div style="font-family:'Barlow Condensed',sans-serif;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--bleu);font-weight:600">Soumettre des plans &#8594;</div>
-      </div>
-    </a>
-    <a href="histoire.html" style="display:block;text-decoration:none;color:inherit;border:1px solid var(--gris-clair);overflow:hidden;transition:box-shadow .25s,transform .25s" class="reveal  d1">
-      <div style="height:200px;background:var(--bleu);position:relative;overflow:hidden">
-        <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(39,78,125,.7) 0%,transparent 60%)"></div>
-        <div style="position:absolute;top:1rem;left:1rem;font-family:'Barlow Condensed',sans-serif;font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:#fff;background:rgba(0,0,0,.3);padding:3px 10px">Atelier de fabrication</div>
-        <div style="position:absolute;bottom:1rem;left:1rem;right:1rem;font-family:'Bree Serif',serif;font-size:1.2rem;color:#fff;line-height:1.2">Pr&#233;cision &#177;0,5&#160;mm</div>
-      </div>
-      <div style="padding:1.5rem">
-        <p style="font-size:.9rem;color:var(--gris);line-height:1.6;margin-bottom:1rem">Notre atelier CNC fabrique au demi-millim&#232;tre pr&#232;s. Vos d&#233;tails architecturaux respect&#233;s &#224; la lettre.</p>
-        <div style="display:flex;flex-direction:column;gap:.4rem;margin-bottom:1.2rem">
-          <div style="display:flex;align-items:center;gap:.6rem;font-size:.85rem;color:var(--gris)"><div style="width:5px;height:5px;background:var(--bleu);border-radius:50%;flex-shrink:0"></div>CNC derni&#232;re g&#233;n&#233;ration</div><div style="display:flex;align-items:center;gap:.6rem;font-size:.85rem;color:var(--gris)"><div style="width:5px;height:5px;background:var(--bleu);border-radius:50%;flex-shrink:0"></div>Contr&#244;les qualit&#233; &#224; chaque &#233;tape</div><div style="display:flex;align-items:center;gap:.6rem;font-size:.85rem;color:var(--gris)"><div style="width:5px;height:5px;background:var(--bleu);border-radius:50%;flex-shrink:0"></div>Photos sur demande</div>
-        </div>
-        <div style="font-family:'Barlow Condensed',sans-serif;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--bleu);font-weight:600">Visiter l'atelier &#8594;</div>
-      </div>
-    </a>
-    <a href="contact.html" style="display:block;text-decoration:none;color:inherit;border:1px solid var(--gris-clair);overflow:hidden;transition:box-shadow .25s,transform .25s" class="reveal  d2">
-      <div style="height:200px;background:var(--bleu2);position:relative;overflow:hidden">
-        <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(39,78,125,.7) 0%,transparent 60%)"></div>
-        <div style="position:absolute;top:1rem;left:1rem;font-family:'Barlow Condensed',sans-serif;font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:#fff;background:rgba(0,0,0,.3);padding:3px 10px">Coordination &amp; livraison</div>
-        <div style="position:absolute;bottom:1rem;left:1rem;right:1rem;font-family:'Bree Serif',serif;font-size:1.2rem;color:#fff;line-height:1.2">DOE complet &amp; suivi</div>
-      </div>
-      <div style="padding:1.5rem">
-        <p style="font-size:.9rem;color:var(--gris);line-height:1.6;margin-bottom:1rem">Plans d'atelier, fiches mat&#233;riaux, certificats et DOE complets remis &#224; chaque livraison.</p>
-        <div style="display:flex;flex-direction:column;gap:.4rem;margin-bottom:1.2rem">
-          <div style="display:flex;align-items:center;gap:.6rem;font-size:.85rem;color:var(--gris)"><div style="width:5px;height:5px;background:var(--bleu);border-radius:50%;flex-shrink:0"></div>DOE complet syst&#233;matique</div><div style="display:flex;align-items:center;gap:.6rem;font-size:.85rem;color:var(--gris)"><div style="width:5px;height:5px;background:var(--bleu);border-radius:50%;flex-shrink:0"></div>Coordination corps de m&#233;tier</div><div style="display:flex;align-items:center;gap:.6rem;font-size:.85rem;color:var(--gris)"><div style="width:5px;height:5px;background:var(--bleu);border-radius:50%;flex-shrink:0"></div>SAV r&#233;actif</div>
-        </div>
-        <div style="font-family:'Barlow Condensed',sans-serif;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--bleu);font-weight:600">En savoir plus &#8594;</div>
-      </div>
-    </a>
-  </div>
-</section>
-
-<section class="section s-fond">
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center">
-    <div style="position:relative" class="reveal">
-      <div style="aspect-ratio:4/5;background:linear-gradient(135deg,var(--bleu-pale) 0%,var(--bleu-pale2) 100%);position:relative;overflow:hidden">
-        <div style="position:absolute;bottom:2rem;left:2rem;font-family:'Bree Serif',serif;font-size:5rem;color:rgba(0,142,210,.1);line-height:1">planForet</div>
-      </div>
-      <div style="position:absolute;bottom:-1rem;left:-1rem;width:100px;height:100px;background:var(--bleu);display:flex;flex-direction:column;align-items:center;justify-content:center">
-        <span style="font-family:'Bree Serif',serif;font-size:2rem;color:#fff;line-height:1">1936</span>
-        <span style="font-family:'Barlow Condensed',sans-serif;font-size:.5rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.8)">Fond&#233;e</span>
-      </div>
-    </div>
-    <div>
-      <div class="label reveal">Notre histoire</div>
-      <h2 class="titre reveal d1" style="font-size:clamp(1.8rem,3.5vw,2.6rem);margin-bottom:1.2rem">8 ans de partenariat <span>avec des agences d'architecture</span></h2>
-      <p class="corps reveal d2">planForet est le partenaire technique qui traduit vos plans en r&#233;alit&#233;. Nous comprenons le langage de l'architecture et respectons l'intention du concepteur jusque dans les moindres d&#233;tails.</p>
-      <p class="corps reveal d2">Prototypage, &#233;chantillons mat&#233;riaux, it&#233;rations &#8212; nous nous adaptons &#224; votre processus de conception. Premier &#233;change sans engagement, toujours.</p>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin-top:2rem" class="reveal d3">
-        <div class="card-bleu"><div class="card-title">Lecture DWG/PDF</div><div class="card-desc">Nous lisons vos plans directement. Pas de retraduction.</div></div>
-        <div class="card-bleu"><div class="card-title">&#201;chantillons mat&#233;riaux</div><div class="card-desc">Validation des mat&#233;riaux et finitions avant fabrication.</div></div>
-        <div class="card-bleu"><div class="card-title">Tol&#233;rance &#177;0,5&#160;mm</div><div class="card-desc">Fabrication CNC au demi-millim&#232;tre. Vos d&#233;tails respect&#233;s.</div></div>
-        <div class="card-bleu"><div class="card-title">DOE complet</div><div class="card-desc">Plans d'atelier, fiches, certificats remis &#224; livraison.</div></div></div><div class="card-desc">CNC, plaqueuse de chants, cabine &#224; vernis &#8212; tout in-house.</div></div>
-        <div class="card-bleu"><div class="card-title">Parole tenue</div><div class="card-desc">D&#233;lais respect&#233;s. Nous ne promettons que ce que nous tenons.</div></div>
-        <div class="card-bleu"><div class="card-title">Pr&#233;cision &#177;0,5 mm</div><div class="card-desc">Finitions irr&#233;prochables sur chaque r&#233;alisation.</div></div>
-        <div class="card-bleu"><div class="card-title">11 v&#233;hicules</div><div class="card-desc">Livraison et pose sur toute la Loire.</div></div>
-      </div>
-      <div style="margin-top:2rem" class="reveal d3">
-        <a href="contact.html" class="btn-outline">Soumettre un projet &#8594;</a>
-      </div>
-    </div>
-  </div>
-</section>
-
+<!-- EXPERTISE -->
 <section class="section s-blanc">
-  <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:3rem;flex-wrap:wrap;gap:1rem">
+  <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:3.5rem;flex-wrap:wrap;gap:1rem">
     <div class="reveal">
-      <div class="label">Nos domaines d'expertise</div>
-      <h2 class="titre" style="font-size:clamp(1.8rem,3.5vw,2.6rem)">Ce que nous <span>r&#233;alisons</span></h2>
+      <div class="label">Notre expertise</div>
+      <h2 class="titre" style="font-size:clamp(1.8rem,4vw,3rem)">Ce que nous <span>apportons</span></h2>
     </div>
-    <a href="realisations.html" class="btn-outline reveal">Toutes les r&#233;alisations &#8594;</a>
+    <a href="contact.html" class="btn-outline reveal">Soumettre un projet &#8594;</a>
   </div>
-  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:3px;background:var(--gris-clair)">
-    <a href="cuisines.html" style="position:relative;overflow:hidden;height:280px;background:var(--bleu-pale2);display:block"><div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(39,78,125,.85) 0%,transparent 55%)"></div><div style="position:absolute;bottom:0;left:0;right:0;padding:1.5rem"><div style="font-family:'Barlow Condensed',sans-serif;font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.7);margin-bottom:.3rem">Particulier</div><div style="font-family:'Bree Serif',serif;font-size:1.4rem;color:#fff">Cuisines</div></div></a>
-    <a href="bibliotheques.html" style="position:relative;overflow:hidden;height:280px;background:var(--fond2);display:block"><div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(39,78,125,.85) 0%,transparent 55%)"></div><div style="position:absolute;bottom:0;left:0;right:0;padding:1.5rem"><div style="font-family:'Barlow Condensed',sans-serif;font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.7);margin-bottom:.3rem">Particulier</div><div style="font-family:'Bree Serif',serif;font-size:1.4rem;color:#fff">Biblioth&#232;ques</div></div></a>
-    <a href="dressings.html" style="position:relative;overflow:hidden;height:280px;background:var(--bleu-pale);display:block"><div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(39,78,125,.85) 0%,transparent 55%)"></div><div style="position:absolute;bottom:0;left:0;right:0;padding:1.5rem"><div style="font-family:'Barlow Condensed',sans-serif;font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.7);margin-bottom:.3rem">Particulier</div><div style="font-family:'Bree Serif',serif;font-size:1.4rem;color:#fff">Dressings</div></div></a>
-    <a href="salles-de-bains.html" style="position:relative;overflow:hidden;height:280px;background:var(--fond2);display:block"><div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(39,78,125,.85) 0%,transparent 55%)"></div><div style="position:absolute;bottom:0;left:0;right:0;padding:1.5rem"><div style="font-family:'Barlow Condensed',sans-serif;font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.7);margin-bottom:.3rem">Particulier</div><div style="font-family:'Bree Serif',serif;font-size:1.4rem;color:#fff">Salles de bains</div></div></a>
-    <a href="escaliers.html" style="position:relative;overflow:hidden;height:280px;background:var(--bleu-pale2);display:block"><div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(39,78,125,.85) 0%,transparent 55%)"></div><div style="position:absolute;bottom:0;left:0;right:0;padding:1.5rem"><div style="font-family:'Barlow Condensed',sans-serif;font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.7);margin-bottom:.3rem">Particulier</div><div style="font-family:'Bree Serif',serif;font-size:1.4rem;color:#fff">Escaliers</div></div></a>
-    <a href="professionnel.html" style="position:relative;overflow:hidden;height:280px;background:var(--bleu);display:block"><div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(39,78,125,.6) 0%,transparent 55%)"></div><div style="position:absolute;bottom:0;left:0;right:0;padding:1.5rem"><div style="font-family:'Barlow Condensed',sans-serif;font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.8);margin-bottom:.3rem">Professionnel</div><div style="font-family:'Bree Serif',serif;font-size:1.4rem;color:#fff">Agencement Pro</div></div></a>
+  <div class="expertise-grid">
+    <a href="contact.html" class="exp-card reveal">
+      <span class="exp-num">01 &mdash; BUREAU D'&#201;TUDES</span>
+      <div class="exp-title">Lecture &amp; analyse de plans</div>
+      <p class="exp-desc">DWG, PDF, ArchiCAD, Revit &#8212; nous lisons vos plans directement et revenons avec des questions techniques pr&#233;cises.</p>
+      <div class="exp-points">
+        <div class="exp-point"><div class="exp-dash"></div>DWG, PDF, ArchiCAD, Revit</div>
+        <div class="exp-point"><div class="exp-dash"></div>Analyse technique approfondie</div>
+        <div class="exp-point"><div class="exp-dash"></div>R&#233;ponse sous 48h</div>
+      </div>
+      <div class="exp-cta">Soumettre des plans &#8594;</div>
+    </a>
+    <a href="histoire.html" class="exp-card reveal d1">
+      <span class="exp-num">02 &mdash; FABRICATION CNC</span>
+      <div class="exp-title">Pr&#233;cision &#177;0,5&nbsp;mm</div>
+      <p class="exp-desc">Notre atelier de 1&#160;500&#160;m&#178; combine les derni&#232;res machines CNC avec l'expertise manuelle de nos compagnons.</p>
+      <div class="exp-points">
+        <div class="exp-point"><div class="exp-dash"></div>CNC derni&#232;re g&#233;n&#233;ration</div>
+        <div class="exp-point"><div class="exp-dash"></div>Contr&#244;les qualit&#233; &#224; chaque &#233;tape</div>
+        <div class="exp-point"><div class="exp-dash"></div>Photos sur demande</div>
+      </div>
+      <div class="exp-cta">Visiter l'atelier &#8594;</div>
+    </a>
+    <a href="contact.html" class="exp-card reveal d2">
+      <span class="exp-num">03 &mdash; LIVRAISON &amp; DOE</span>
+      <div class="exp-title">DOE complet syst&#233;matique</div>
+      <p class="exp-desc">Plans d'atelier, fiches mat&#233;riaux, certificats et DOE complets remis &#224; chaque livraison. Z&#233;ro n&#233;gociation.</p>
+      <div class="exp-points">
+        <div class="exp-point"><div class="exp-dash"></div>DOE complet &#224; chaque livraison</div>
+        <div class="exp-point"><div class="exp-dash"></div>Coordination corps de m&#233;tier</div>
+        <div class="exp-point"><div class="exp-dash"></div>SAV r&#233;actif</div>
+      </div>
+      <div class="exp-cta">En savoir plus &#8594;</div>
+    </a>
   </div>
 </section>
 
-<section id="avis" class="section s-fond" style="padding-bottom:0">
+<!-- SPECS TECHNIQUES -->
+<section class="section s-fond">
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:start">
+    <div>
+      <div class="label reveal">Sp&#233;cifications techniques</div>
+      <h2 class="titre reveal d1" style="font-size:clamp(1.8rem,3.5vw,2.8rem);margin-bottom:1.5rem">L'atelier <span>en chiffres</span></h2>
+      <p class="corps reveal d2">Trois g&#233;n&#233;rations d'investissement dans l'outil de production. Notre atelier stéphanois combine le meilleur de la technologie CNC et l'expertise manuelle transmise depuis 1936.</p>
+      <div style="margin-top:2rem" class="reveal d3">
+        <a href="histoire.html" class="btn-outline">Visiter l'atelier &#8594;</a>
+      </div>
+    </div>
+    <div class="specs-grid reveal d2">
+      <div class="spec-item">
+        <span class="spec-label">Surface atelier</span>
+        <span class="spec-num">1 500 <span class="spec-unit">m&#178;</span></span>
+        <p class="spec-desc">Atelier int&#233;gr&#233; &#224; Saint-&#201;tienne</p>
+      </div>
+      <div class="spec-item">
+        <span class="spec-label">Tol&#233;rance CNC</span>
+        <span class="spec-num">&#177;0,5 <span class="spec-unit">mm</span></span>
+        <p class="spec-desc">Pr&#233;cision de fabrication garantie</p>
+      </div>
+      <div class="spec-item">
+        <span class="spec-label">Flotte v&#233;hicules</span>
+        <span class="spec-num">11</span>
+        <p class="spec-desc">Livraison sur toute la Loire</p>
+      </div>
+      <div class="spec-item">
+        <span class="spec-label">Exp&#233;rience</span>
+        <span class="spec-num">88 <span class="spec-unit">ans</span></span>
+        <p class="spec-desc">3 g&#233;n&#233;rations d'artisans</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESSUS -->
+<section class="section s-blanc">
+  <div style="display:grid;grid-template-columns:1fr 2fr;gap:6rem;align-items:start">
+    <div>
+      <div class="label reveal">Collaboration</div>
+      <h2 class="titre reveal d1" style="font-size:clamp(1.8rem,3.5vw,2.8rem)">Notre <span>m&#233;thode</span></h2>
+      <p class="corps reveal d2" style="margin-top:1rem">Un processus clair, transparent, adapt&#233; &#224; votre workflow. Premier &#233;change sans engagement.</p>
+    </div>
+    <div class="process-list reveal d1">
+      <div class="process-row"><div class="process-n">01</div><div class="process-body"><div class="process-title">Brief &amp; analyse</div><p class="process-desc">Envoyez vos plans DWG/PDF. Nous analysons et revenons avec des questions techniques pr&#233;cises sous 48h.</p></div></div>
+      <div class="process-row"><div class="process-n">02</div><div class="process-body"><div class="process-title">Proposition technique</div><p class="process-desc">Mat&#233;riaux, m&#233;thodes de fabrication, assemblages. Discussion ouverte. Adaptation &#224; vos exigences.</p></div></div>
+      <div class="process-row"><div class="process-n">03</div><div class="process-body"><div class="process-title">&#201;chantillons &amp; validation</div><p class="process-desc">Prototypage ou &#233;chantillons mat&#233;riaux pour validation avant lancement de la fabrication.</p></div></div>
+      <div class="process-row"><div class="process-n">04</div><div class="process-body"><div class="process-title">Fabrication de pr&#233;cision</div><p class="process-desc">Fabrication selon plans valid&#233;s. Contr&#244;les qualit&#233; &#224; chaque &#233;tape. Photos disponibles sur demande.</p></div></div>
+      <div class="process-row"><div class="process-n">05</div><div class="process-body"><div class="process-title">Livraison &amp; DOE</div><p class="process-desc">R&#233;ception technique contradictoire. DOE complet remis. SAV r&#233;actif si n&#233;cessaire.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- REALISATIONS -->
+<section class="section s-fond" style="padding-bottom:0">
+  <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:2.5rem;flex-wrap:wrap;gap:1rem">
+    <div class="reveal">
+      <div class="label">R&#233;f&#233;rences</div>
+      <h2 class="titre" style="font-size:clamp(1.8rem,3.5vw,2.8rem)">Projets <span>r&#233;alis&#233;s</span></h2>
+    </div>
+    <a href="realisations-architectes.html" class="btn-outline reveal">Voir tout le portfolio &#8594;</a>
+  </div>
+  <div class="real-grid">
+    <a href="realisations-architectes.html" class="real-item"><div class="real-item-bg" style="background:linear-gradient(135deg,#1D3557,#274E7D)"></div><div class="real-item-overlay"></div><div class="real-item-body"><div class="real-item-cat">R&#233;sidentiel haut de gamme</div><div class="real-item-name">Int&#233;rieurs sur-mesure</div></div></a>
+    <a href="professionnel.html" class="real-item"><div class="real-item-bg" style="background:linear-gradient(135deg,#2C2929,#4A4A4A)"></div><div class="real-item-overlay"></div><div class="real-item-body"><div class="real-item-cat">Tertiaire &amp; commerce</div><div class="real-item-name">Agencement professionnel</div></div></a>
+    <a href="escaliers.html" class="real-item"><div class="real-item-bg" style="background:linear-gradient(135deg,#344E41,#1D3557)"></div><div class="real-item-overlay"></div><div class="real-item-body"><div class="real-item-cat">Technique complexe</div><div class="real-item-name">Escaliers &amp; structures</div></div></a>
+  </div>
+</section>
+
+<!-- AVIS -->
+<section class="section s-blanc" style="padding-bottom:0">
   <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:2.5rem;flex-wrap:wrap;gap:1rem">
     <div class="reveal">
       <div class="label">T&#233;moignages</div>
-      <h2 class="titre" style="font-size:clamp(1.8rem,3.5vw,2.6rem)">Nos clients <span>&#224; la parole</span></h2>
+      <h2 class="titre" style="font-size:clamp(1.8rem,3.5vw,2.6rem)">Ce que disent <span>nos partenaires</span></h2>
     </div>
-    <div style="display:flex;gap:.6rem" class="reveal">
+    <div style="display:flex;gap:.5rem" class="reveal">
       <button class="rev-nav-btn" id="rev-prev">&#8592;</button>
       <button class="rev-nav-btn" id="rev-next">&#8594;</button>
     </div>
   </div>
   <div style="overflow:hidden;margin:0 -6vw">
-    <div id="rev-track" style="display:flex;gap:20px;padding:0 6vw 3rem;transition:transform .5s cubic-bezier(.25,.46,.45,.94)"><div class="rev-card"><span class="rev-badge">Architecte</span><div class="rev-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="rev-text">planForet traduit nos plans avec une pr&#233;cision remarquable. Partenaire incontournable depuis 8 ans.</p><div><div class="rev-name">Charlotte B.</div><div class="rev-detail">Lyon &middot; Agence d'architecture</div></div></div><div class="rev-card"><span class="rev-badge">Ma&#238;tre d'oeuvre</span><div class="rev-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="rev-text">Fiabilit&#233;, pr&#233;cision, r&#233;activit&#233; &#8212; tout ce qu'on attend d'un partenaire menuisier haut de gamme. Je recommande.</p><div><div class="rev-name">Pierre-Marc V.</div><div class="rev-detail">Saint-&#201;tienne &middot; Ma&#238;tre d'oeuvre</div></div></div><div class="rev-card"><span class="rev-badge">Architecte d'int&#233;rieur</span><div class="rev-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="rev-text">Ils lisent nos plans DWG sans probl&#232;me et reviennent avec des questions tr&#232;s pertinentes. Un vrai partenaire technique.</p><div><div class="rev-name">Aur&#233;lie F.</div><div class="rev-detail">Lyon &middot; Architecte d'int&#233;rieur</div></div></div><div class="rev-card"><span class="rev-badge">Promoteur</span><div class="rev-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="rev-text">Qualit&#233; constante sur tous nos chantiers de promotion immobili&#232;re. DOE complet livr&#233; &#224; chaque fois. Excellent.</p><div><div class="rev-name">Marc D.</div><div class="rev-detail">Loire &middot; Promotion immobili&#232;re</div></div></div></div><p class="rev-text">Planforet a r&#233;alis&#233; notre cuisine sur-mesure. R&#233;sultat parfait, dans les d&#233;lais annonc&#233;s. Je recommande sans h&#233;siter.</p><div><div class="rev-name">Marie-Laure D.</div><div class="rev-detail">Saint-&#201;tienne &middot; Cuisine</div></div></div>
-      <div class="rev-card"><span class="rev-badge">Professionnel</span><div class="rev-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="rev-text">Am&#233;nagement complet de notre pharmacie. Communication excellente, d&#233;lais parfaitement respect&#233;s. Partenaire de confiance.</p><div><div class="rev-name">Jean-Pierre M.</div><div class="rev-detail">Loire &middot; Pharmacie</div></div></div>
-      <div class="rev-card"><span class="rev-badge">Architecte</span><div class="rev-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="rev-text">planForet traduit nos plans avec une pr&#233;cision remarquable. Partenaire incontournable depuis 8 ans.</p><div><div class="rev-name">Charlotte B.</div><div class="rev-detail">Lyon &middot; Agence d'architecture</div></div></div>
-      <div class="rev-card"><span class="rev-badge">Particulier</span><div class="rev-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="rev-text">Biblioth&#232;que du sol au plafond r&#233;alis&#233;e avec une pr&#233;cision remarquable. Solutions intelligentes et finitions parfaites.</p><div><div class="rev-name">Sophie B.</div><div class="rev-detail">Firminy &middot; Biblioth&#232;que</div></div></div>
-      <div class="rev-card"><span class="rev-badge">Professionnel</span><div class="rev-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="rev-text">Devis clair, travail impeccable, d&#233;lais tenus. La parole de planForet vaut de l'or. Partenaires depuis 10 ans.</p><div><div class="rev-name">Fran&#231;ois C.</div><div class="rev-detail">Loire &middot; Promoteur</div></div></div>
+    <div id="rev-track" style="display:flex;gap:16px;padding:0 6vw 4rem;transition:transform .5s cubic-bezier(.25,.46,.45,.94)">
+      <div class="rev-card"><span class="rev-badge">Architecte</span><div class="rev-stars">&#9733; &#9733; &#9733; &#9733; &#9733;</div><p class="rev-text">planForet traduit nos plans avec une pr&#233;cision remarquable. Ils comprennent le langage de l'architecture. Partenaire incontournable depuis 8 ans.</p><div><div class="rev-name">Charlotte B.</div><div class="rev-detail">Lyon &middot; Agence d'architecture</div></div></div>
+      <div class="rev-card"><span class="rev-badge">Ma&#238;tre d'oeuvre</span><div class="rev-stars">&#9733; &#9733; &#9733; &#9733; &#9733;</div><p class="rev-text">Fiabilit&#233;, pr&#233;cision, r&#233;activit&#233; &#8212; tout ce qu'on attend d'un partenaire menuisier haut de gamme. DOE complet livr&#233; &#224; chaque chantier.</p><div><div class="rev-name">Pierre-Marc V.</div><div class="rev-detail">Saint-&#201;tienne &middot; Ma&#238;tre d'oeuvre</div></div></div>
+      <div class="rev-card"><span class="rev-badge">Architecte d'int&#233;rieur</span><div class="rev-stars">&#9733; &#9733; &#9733; &#9733; &#9733;</div><p class="rev-text">Ils lisent nos plans DWG sans probl&#232;me et reviennent avec des questions tr&#232;s pertinentes. Un vrai partenaire technique, pas un simple ex&#233;cutant.</p><div><div class="rev-name">Aur&#233;lie F.</div><div class="rev-detail">Lyon &middot; Architecte d'int&#233;rieur</div></div></div>
+      <div class="rev-card"><span class="rev-badge">Promoteur</span><div class="rev-stars">&#9733; &#9733; &#9733; &#9733; &#9733;</div><p class="rev-text">Qualit&#233; constante sur tous nos chantiers de promotion immobili&#232;re haut de gamme. DOE toujours complet et livr&#233; &#224; temps. Excellent.</p><div><div class="rev-name">Marc D.</div><div class="rev-detail">Loire &middot; Promotion immobili&#232;re</div></div></div>
     </div>
   </div>
 </section>
 
+<!-- CTA -->
 <div class="cta-band">
-  <div style="position:relative;z-index:1">
-    <div class="label" style="color:rgba(255,255,255,.8)">Votre projet</div>
-    <h2 style="font-family:'Bree Serif',serif;font-size:clamp(1.6rem,3.5vw,2.6rem);color:#fff;margin-bottom:.8rem">Travaillons ensemble<br>sur votre prochain projet.</h2>
-    <p style="font-size:1rem;color:rgba(255,255,255,.75)">Envoyez vos plans ou un brief pr&#233;liminaire. R&#233;ponse technique sous 48h. Sans engagement.</p>
+  <div>
+    <div class="cta-overline">Collaboration</div>
+    <div class="cta-h2">Travaillons ensemble<br>sur votre prochain projet.</div>
+    <p class="cta-sub">Envoyez vos plans ou un brief pr&#233;liminaire. R&#233;ponse technique sous 48h. Premier &#233;change sans engagement.</p>
   </div>
-  <div style="position:relative;z-index:1;display:flex;flex-direction:column;align-items:flex-start;gap:.8rem">
-    <span class="cta-tel-label">Appelez directement</span>
-    <a href="tel:0477323650" class="cta-tel">04 77 32 36 50</a>
-    <a href="contact.html" class="btn-outline-w">Demander un devis gratuit &#8594;</a>
+  <div class="cta-right">
+    <div>
+      <span class="cta-tel-label">Ligne directe</span>
+      <a href="tel:0477323650" class="cta-tel">04 77 32 36 50</a>
+    </div>
+    <div>
+      <span class="cta-tel-label">Email</span>
+      <a href="mailto:info@planforet.com" style="font-family:'Barlow Condensed',sans-serif;font-size:1rem;letter-spacing:.06em;color:rgba(255,255,255,.6);transition:color .2s;display:block;margin-top:.2rem">info@planforet.com</a>
+    </div>
+    <a href="contact.html" class="btn-noir" style="align-self:flex-start">Soumettre des plans &#8594;</a>
   </div>
 </div>
 
+<!-- FOOTER -->
 <footer>
   <div class="footer-grid">
     <div>
       <img src="img/logo-white.png" class="footer-logo" alt="planForet">
-      <p class="footer-tagline">Menuisier agenceur depuis 1936 &#224; Saint-&#201;tienne. Trois g&#233;n&#233;rations de savoir-faire au service de vos projets sur-mesure.</p>
+      <p class="footer-tagline">Menuisier agenceur depuis 1936 &#224; Saint-&#201;tienne. Partenaire technique des architectes et ma&#238;tres d'oeuvre.</p>
       <div class="footer-sig"><div class="sig-flag"><span></span><span></span><span></span></div>Le savoir-faire made in Loire</div>
     </div>
-    <div class="footer-col"><h4>R&#233;alisations</h4><ul><li><a href="cuisines.html">Cuisines</a></li><li><a href="bibliotheques.html">Biblioth&#232;ques</a></li><li><a href="dressings.html">Dressings</a></li><li><a href="salles-de-bains.html">Salles de bains</a></li><li><a href="escaliers.html">Escaliers</a></li><li><a href="professionnel.html">Professionnel</a></li></ul></div>
-    <div class="footer-col"><h4>L'entreprise</h4><ul><li><a href="histoire.html">Notre histoire</a></li><li><a href="particuliers.html">Particuliers</a></li><li><a href="professionnels.html">Professionnels</a></li><li><a href="architectes.html">Architectes</a></li></ul></div>
-    <div class="footer-col"><h4>Contact</h4><ul><li><a href="tel:0477323650">04 77 32 36 50</a></li><li><a href="/cdn-cgi/l/email-protection#a7cec9c1c8e7d7cbc6c9c1c8d5c2d389c4c8ca"><span class="__cf_email__" data-cfemail="b7ded9d1d8f7c7dbd6d9d1d8c5d2c399d4d8da">[email&#160;protected]</span></a></li><li><a href="contact.html">Devis gratuit</a></li><li><a href="mentions-legales.html">Mentions l&#233;gales</a></li></ul></div>
+    <div class="footer-col"><h4>R&#233;alisations</h4><ul>
+      <li><a href="realisations-architectes.html">Toutes les r&#233;f&#233;rences</a></li>
+      <li><a href="cuisines.html">Cuisines</a></li>
+      <li><a href="bibliotheques.html">Biblioth&#232;ques</a></li>
+      <li><a href="escaliers.html">Escaliers</a></li>
+      <li><a href="professionnel.html">Professionnel</a></li>
+    </ul></div>
+    <div class="footer-col"><h4>L'entreprise</h4><ul>
+      <li><a href="histoire.html">Notre atelier</a></li>
+      <li><a href="histoire.html">L'&#233;quipe</a></li>
+      <li><a href="particuliers.html">Particuliers</a></li>
+      <li><a href="professionnels.html">Professionnels</a></li>
+    </ul></div>
+    <div class="footer-col"><h4>Contact</h4><ul>
+      <li><a href="tel:0477323650">04 77 32 36 50</a></li>
+      <li><a href="mailto:info@planforet.com">info@planforet.com</a></li>
+      <li><a href="contact.html">Soumettre des plans</a></li>
+      <li><a href="mentions-legales.html">Mentions l&#233;gales</a></li>
+    </ul></div>
   </div>
   <div class="footer-bottom">
     <p>&#169; 2025 planForet SAS &#8212; ZI, 7 rue Danton, 42000 Saint-&#201;tienne &#8212; Fond&#233;e en 1936</p>
@@ -425,24 +510,21 @@ document.head.appendChild(style);
 </footer>
 
 <div id="cookie">
-  <p>Ce site utilise des cookies pour am&#233;liorer votre exp&#233;rience. <a href="politique-confidentialite.html">En savoir plus</a></p>
+  <p>Ce site utilise des cookies. <a href="politique-confidentialite.html">En savoir plus</a></p>
   <div style="display:flex;gap:.8rem;flex-shrink:0">
     <button class="cbtn cbtn-no" id="c-no">Refuser</button>
     <button class="cbtn cbtn-ok" id="c-ok">Accepter</button>
   </div>
 </div>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
 document.addEventListener('DOMContentLoaded', function() {
   document.documentElement.classList.remove('no-js');
   document.documentElement.classList.add('js-ready');
+
   var nav = document.getElementById('nav');
   var lw = document.getElementById('logo-w');
   var lc = document.getElementById('logo-c');
-  var burger = document.getElementById('burger');
-  var navlinks = document.getElementById('navlinks');
-  var overlay = document.getElementById('overlay');
-
   function updateNav() {
     var s = window.scrollY > 80;
     if (s) { nav.classList.add('scrolled'); } else { nav.classList.remove('scrolled'); }
@@ -450,55 +532,50 @@ document.addEventListener('DOMContentLoaded', function() {
     if (lc) lc.style.opacity = s ? '1' : '0';
   }
   updateNav();
-  window.addEventListener('scroll', updateNav, {passive: true});
+  window.addEventListener('scroll', updateNav, {passive:true});
 
-  if (burger) burger.addEventListener('click', function() {
-    navlinks.classList.toggle('open');
-    overlay.classList.toggle('on');
+  document.getElementById('burger') && document.getElementById('burger').addEventListener('click', function() {
+    document.getElementById('navlinks').classList.toggle('open');
+    document.getElementById('overlay').classList.toggle('on');
   });
-  if (overlay) overlay.addEventListener('click', function() {
-    navlinks.classList.remove('open');
-    overlay.classList.remove('on');
+  document.getElementById('overlay') && document.getElementById('overlay').addEventListener('click', function() {
+    document.getElementById('navlinks').classList.remove('open');
+    document.getElementById('overlay').classList.remove('on');
+  });
+  document.addEventListener('click', function(e) {
+    var sw = document.getElementById('seg-switcher');
+    if (sw && !sw.contains(e.target)) document.getElementById('seg-menu').classList.remove('open');
   });
 
   var obs = new IntersectionObserver(function(entries) {
-    entries.forEach(function(e) { if (e.isIntersecting) { e.target.classList.add('on'); obs.unobserve(e.target); } });
-  }, {threshold: .1, rootMargin: '0px 0px -40px 0px'});
+    entries.forEach(function(e) { if (e.isIntersecting) { e.target.classList.add('on'); obs.unobserve(e.target); }});
+  }, {threshold:.1, rootMargin:'0px 0px -40px 0px'});
   document.querySelectorAll('.reveal').forEach(function(el) { obs.observe(el); });
 
   var co = new IntersectionObserver(function(entries) {
     entries.forEach(function(e) {
       if (e.isIntersecting) {
-        var target = parseInt(e.target.dataset.count), start = null;
-        (function step(ts) {
-          if (!start) start = ts;
-          var p = Math.min((ts - start) / 2000, 1), ease = 1 - Math.pow(1 - p, 3);
-          e.target.textContent = Math.round(ease * target);
-          if (p < 1) requestAnimationFrame(step);
-        })(performance.now());
+        var t = parseInt(e.target.dataset.count), s = null;
+        (function step(ts) { if(!s) s=ts; var p=Math.min((ts-s)/2000,1), ez=1-Math.pow(1-p,3); e.target.textContent=Math.round(ez*t); if(p<1) requestAnimationFrame(step); })(performance.now());
         co.unobserve(e.target);
       }
     });
-  }, {threshold: .5});
+  }, {threshold:.5});
   document.querySelectorAll('[data-count]').forEach(function(el) { co.observe(el); });
 
-  var track = document.getElementById('rev-track');
-  var ri = 0;
-  function cw() { var c = track && track.querySelector('.rev-card'); return c ? c.offsetWidth + 20 : 360; }
-  function mx() { return Math.max(0, (track ? track.querySelectorAll('.rev-card').length : 0) - Math.floor((track && track.parentElement ? track.parentElement.offsetWidth : 700) / cw())); }
-  function slide(d) { ri = Math.max(0, Math.min(ri + d, mx())); if (track) track.style.transform = 'translateX(-' + (ri * cw()) + 'px)'; }
-  var rp = document.getElementById('rev-prev');
-  var rn = document.getElementById('rev-next');
-  if (rp) rp.addEventListener('click', function() { slide(-1); });
-  if (rn) rn.addEventListener('click', function() { slide(1); });
-  setInterval(function() { if (ri >= mx()) ri = -1; slide(1); }, 6500);
+  var track = document.getElementById('rev-track'), ri = 0;
+  function cw() { var c = track && track.querySelector('.rev-card'); return c ? c.offsetWidth+16 : 376; }
+  function mx() { return Math.max(0,(track?track.querySelectorAll('.rev-card').length:0)-Math.floor((track&&track.parentElement?track.parentElement.offsetWidth:700)/cw())); }
+  function slide(d) { ri=Math.max(0,Math.min(ri+d,mx())); if(track) track.style.transform='translateX(-'+(ri*cw())+'px)'; }
+  document.getElementById('rev-prev') && document.getElementById('rev-prev').addEventListener('click', function(){slide(-1)});
+  document.getElementById('rev-next') && document.getElementById('rev-next').addEventListener('click', function(){slide(1)});
+  setInterval(function(){if(ri>=mx())ri=-1;slide(1)},7000);
 
-  var cookie = document.getElementById('cookie');
-  if (!localStorage.getItem('pf-ck')) setTimeout(function() { if (cookie) cookie.classList.add('show'); }, 2000);
-  var cok = document.getElementById('c-ok');
-  var cno = document.getElementById('c-no');
-  if (cok) cok.addEventListener('click', function() { localStorage.setItem('pf-ck', 'ok'); if (cookie) cookie.classList.remove('show'); });
-  if (cno) cno.addEventListener('click', function() { localStorage.setItem('pf-ck', 'no'); if (cookie) cookie.classList.remove('show'); });
-
-  document.querySelectorAll('a[href^="#"]').forEach(function(a) {
-    a.add
+  var ck = document.getElementById('cookie');
+  if (!localStorage.getItem('pf-ck')) setTimeout(function(){if(ck)ck.classList.add('show')},2000);
+  document.getElementById('c-ok') && document.getElementById('c-ok').addEventListener('click', function(){localStorage.setItem('pf-ck','ok');ck.classList.remove('show')});
+  document.getElementById('c-no') && document.getElementById('c-no').addEventListener('click', function(){localStorage.setItem('pf-ck','no');ck.classList.remove('show')});
+});
+</script>
+</body>
+</html>
