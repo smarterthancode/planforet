@@ -87,7 +87,7 @@ h1,h2,h3{font-family:'Bree Serif',serif;font-weight:400;line-height:1.15}
 .sig-flag span:nth-child(3){background:var(--rouge-france)}
 .hero h1{font-size:clamp(2.8rem,6.5vw,5.5rem);color:#fff;margin-bottom:1rem}
 .hero h1 span{color:var(--zand)}
-.hero-sub{font-size:1.05rem;color:rgba(240,230,215,.85);max-width:500px;margin-bottom:2rem;line-height:1.75}
+.hero-sub{font-size:1.05rem;color:rgba(240,230,215,.95);max-width:500px;margin-bottom:2rem;line-height:1.75}
 .hero-btns{display:flex;gap:1rem;flex-wrap:wrap}
 .btn-accent{display:inline-flex;align-items:center;gap:8px;padding:13px 28px;background:var(--accent);font-family:'Barlow Condensed',sans-serif;font-size:.88rem;letter-spacing:.1em;text-transform:uppercase;color:#fff;transition:background .2s}
 .btn-accent:hover{background:var(--p2)}
@@ -99,7 +99,7 @@ h1,h2,h3{font-family:'Bree Serif',serif;font-weight:400;line-height:1.15}
 .hs{padding:2rem 2.5rem;border-bottom:1px solid rgba(230,211,179,.12);text-align:center}
 .hs:last-child{border-bottom:none}
 .hs-n{font-family:'Bree Serif',serif;font-size:2.8rem;color:#fff;display:block;line-height:1}
-.hs-l{font-family:'Barlow Condensed',sans-serif;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(230,211,179,.65);display:block;margin-top:5px}
+.hs-l{font-family:'Barlow Condensed',sans-serif;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(230,211,179,.9);display:block;margin-top:5px}
 
 /* TICKER */
 .ticker{background:var(--accent);padding:11px 0;overflow:hidden}
@@ -179,14 +179,14 @@ h1,h2,h3{font-family:'Bree Serif',serif;font-weight:400;line-height:1.15}
 footer{background:var(--bruin);color:#fff;padding:5rem 6vw 2.5rem}
 .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;margin-bottom:3rem}
 .footer-logo{height:38px;width:auto;margin-bottom:1rem}
-.footer-tagline{font-size:.88rem;color:rgba(255,255,255,.55);line-height:1.7;max-width:240px;margin-top:.5rem}
+.footer-tagline{font-size:.88rem;color:rgba(255,255,255,.82);line-height:1.7;max-width:240px;margin-top:.5rem}
 .footer-sig{display:inline-flex;align-items:center;gap:.7rem;font-family:'Barlow Condensed',sans-serif;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.45);margin-top:1rem}
-.footer-col h4{font-family:'Barlow Condensed',sans-serif;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:1.2rem;border-bottom:1px solid rgba(255,255,255,.1);padding-bottom:.6rem}
+.footer-col h4{font-family:'Barlow Condensed',sans-serif;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.65);margin-bottom:1.2rem;border-bottom:1px solid rgba(255,255,255,.1);padding-bottom:.6rem}
 .footer-col ul{display:flex;flex-direction:column;gap:.55rem}
-.footer-col ul a{font-size:.88rem;color:rgba(255,255,255,.6);transition:.2s}
-.footer-col ul a:hover{color:var(--zand)}
+.footer-col ul a{font-size:.88rem;color:rgba(255,255,255,.85);transition:.2s}
+.footer-col ul a:hover{color:#fff}
 .footer-bottom{padding-top:2rem;border-top:1px solid rgba(255,255,255,.08);display:flex;justify-content:space-between;flex-wrap:wrap;gap:.8rem;align-items:center}
-.footer-bottom p,.footer-bottom a{font-size:.78rem;color:rgba(255,255,255,.4)}
+.footer-bottom p,.footer-bottom a{font-size:.78rem;color:rgba(255,255,255,.65)}
 
 /* COOKIE */
 #cookie{position:fixed;bottom:0;left:0;right:0;z-index:9999;background:var(--wit);border-top:3px solid var(--p);padding:1.2rem 6vw;display:flex;align-items:center;justify-content:space-between;gap:1.5rem;box-shadow:0 -4px 20px rgba(0,0,0,.06);transform:translateY(100%);transition:transform .4s}
@@ -472,7 +472,7 @@ html.js-ready .reveal.on{opacity:1;transform:none}
     </ul></div>
     <div class="footer-col"><h4>Contact</h4><ul>
       <li><a href="tel:0477323650">04 77 32 36 50</a></li>
-      <li><a href="mailto:info@planforet.com">info@planforet.com</a></li>
+      <li><a href="/cdn-cgi/l/email-protection#fc95929a93bc8c909d929a938e9988d29f9391"><span class="__cf_email__" data-cfemail="deb7b0b8b19eaeb2bfb0b8b1acbbaaf0bdb1b3">[email&#160;protected]</span></a></li>
       <li><a href="contact.html">Devis gratuit</a></li>
       <li><a href="mentions-legales.html">Mentions l&#233;gales</a></li>
     </ul></div>
@@ -491,7 +491,7 @@ html.js-ready .reveal.on{opacity:1;transform:none}
   </div>
 </div>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 document.addEventListener('DOMContentLoaded', function() {
   document.documentElement.classList.remove('no-js');
   document.documentElement.classList.add('js-ready');
@@ -548,9 +548,4 @@ document.addEventListener('DOMContentLoaded', function() {
 
   var ck = document.getElementById('cookie');
   if (!localStorage.getItem('pf-ck')) setTimeout(function(){if(ck)ck.classList.add('show')},2000);
-  document.getElementById('c-ok') && document.getElementById('c-ok').addEventListener('click', function(){localStorage.setItem('pf-ck','ok');ck.classList.remove('show')});
-  document.getElementById('c-no') && document.getElementById('c-no').addEventListener('click', function(){localStorage.setItem('pf-ck','no');ck.classList.remove('show')});
-});
-</script>
-</body>
-</html>
+  document.getElementById('c-ok') && document.getElementById('c-ok').addEventListener('click', function(){localStorage.setItem('pf-ck
