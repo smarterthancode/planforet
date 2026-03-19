@@ -175,6 +175,9 @@ footer{background:var(--anthracite);color:#fff;padding:5rem 6vw 2.5rem}
 .mob-overlay.on{display:block}
 @media(max-width:1024px){.hero-stats{display:none}.audience-grid{grid-template-columns:1fr}.cta-band{grid-template-columns:1fr}.footer-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:768px){.nav-links{display:none}.hamburger{display:flex}.nav-links.open{display:flex;flex-direction:column;position:fixed;top:64px;left:0;right:0;background:#fff;padding:1.5rem 6vw;gap:1rem;z-index:998;border-top:3px solid var(--bleu);box-shadow:0 8px 20px rgba(0,0,0,.08)}.nav-links.open>li>a{color:var(--anthracite)!important}.section{padding:4rem 5vw}.stats-bar{grid-template-columns:1fr 1fr}.footer-grid{grid-template-columns:1fr}}
+
+a[style*="border:1px solid var(--gris-clair)"]:hover{box-shadow:0 8px 30px rgba(0,142,210,.12);transform:translateY(-2px)}
+a[style*="border:1px solid var(--gris-clair)"]{transition:box-shadow .25s,transform .25s}
 </style>
 </head>
 <body>
@@ -256,49 +259,73 @@ footer{background:var(--anthracite);color:#fff;padding:5rem 6vw 2.5rem}
   <div class="sc"><span class="sc-n" data-count="98">98</span><span class="sc-l">% clients satisfaits</span></div>
 </div>
 
-<section id="qui-etes-vous" class="section s-blanc">
-  <div style="text-align:center;margin-bottom:3rem" class="reveal">
+<section id="qui-etes-vous" class="section s-blanc" style="padding:4rem 6vw">
+  <div style="text-align:center;margin-bottom:2.5rem" class="reveal">
     <div class="label" style="justify-content:center">Vous &#234;tes ?</div>
-    <h2 class="titre" style="font-size:clamp(1.8rem,4vw,2.8rem)">Un accompagnement <span>adapt&#233; &#224; votre profil</span></h2>
-    <p style="font-size:1rem;color:var(--gris);max-width:520px;margin:1rem auto 0">Particulier, professionnel ou architecte &#8212; chaque projet m&#233;rite une approche sur-mesure.</p>
+    <h2 class="titre" style="font-size:clamp(1.6rem,3vw,2.4rem)">Un accompagnement <span>adapt&#233; &#224; votre profil</span></h2>
   </div>
-  <div class="audience-grid">
-    <a href="particuliers.html" class="audience-card reveal">
-      <div class="ac-badge">Particulier</div>
-      <h3 class="ac-title">Vous r&#234;vez d'un int&#233;rieur unique</h3>
-      <p class="ac-desc">Cuisine, dressing, biblioth&#232;que&#8230; Nous donnons vie &#224; vos projets avec le soin du travail artisanal.</p>
-      <div class="ac-list">
-        <div class="ac-item"><div class="ac-dot"></div>Visite &#224; domicile gratuite</div>
-        <div class="ac-item"><div class="ac-dot"></div>Fabrication dans notre atelier</div>
-        <div class="ac-item"><div class="ac-dot"></div>Pose cl&#233; en main</div>
-        <div class="ac-item"><div class="ac-dot"></div>D&#233;lais garantis</div>
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem">
+
+    <!-- PARTICULIER -->
+    <a href="particuliers.html" style="display:block;text-decoration:none;color:inherit;border:1px solid var(--gris-clair);transition:box-shadow .25s;overflow:hidden" class="reveal">
+      <div style="height:200px;background:var(--bleu-pale2);position:relative;overflow:hidden">
+        <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(39,78,125,.7) 0%,transparent 60%)"></div>
+        <div style="position:absolute;top:1rem;left:1rem;font-family:'Barlow Condensed',sans-serif;font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:#fff;background:var(--bleu);padding:3px 10px">Particulier</div>
+        <div style="position:absolute;bottom:1rem;left:1rem;right:1rem">
+          <div style="font-family:'Bree Serif',serif;font-size:1.2rem;color:#fff;line-height:1.2">Votre int&#233;rieur<br>sur-mesure</div>
+        </div>
       </div>
-      <div class="ac-cta">D&#233;couvrir l'offre particuliers &#8594;</div>
-    </a>
-    <a href="professionnels.html" class="audience-card reveal d1">
-      <div class="ac-badge">Professionnel</div>
-      <h3 class="ac-title">Vous g&#233;rez des chantiers exigeants</h3>
-      <p class="ac-desc">Pharmacies, commerces, bureaux &#8212; votre partenaire fiable. D&#233;lais tenus, qualit&#233; constante.</p>
-      <div class="ac-list">
-        <div class="ac-item"><div class="ac-dot"></div>R&#233;ponse sous 24h</div>
-        <div class="ac-item"><div class="ac-dot"></div>Respect des plannings chantier</div>
-        <div class="ac-item"><div class="ac-dot"></div>+500 chantiers pro r&#233;alis&#233;s</div>
-        <div class="ac-item"><div class="ac-dot"></div>Dossier technique complet</div>
+      <div style="padding:1.5rem">
+        <p style="font-size:.9rem;color:var(--gris);line-height:1.6;margin-bottom:1rem">Cuisine, dressing, biblioth&#232;que &#8212; r&#233;alis&#233;s dans notre atelier, pos&#233;s chez vous.</p>
+        <div style="display:flex;flex-direction:column;gap:.4rem;margin-bottom:1.2rem">
+          <div style="display:flex;align-items:center;gap:.6rem;font-size:.85rem;color:var(--gris)"><div style="width:5px;height:5px;background:var(--bleu);border-radius:50%;flex-shrink:0"></div>Visite &#224; domicile gratuite</div>
+          <div style="display:flex;align-items:center;gap:.6rem;font-size:.85rem;color:var(--gris)"><div style="width:5px;height:5px;background:var(--bleu);border-radius:50%;flex-shrink:0"></div>Fabrication sur-mesure</div>
+          <div style="display:flex;align-items:center;gap:.6rem;font-size:.85rem;color:var(--gris)"><div style="width:5px;height:5px;background:var(--bleu);border-radius:50%;flex-shrink:0"></div>Pose cl&#233; en main</div>
+        </div>
+        <div style="font-family:'Barlow Condensed',sans-serif;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--bleu);font-weight:600">D&#233;couvrir &#8594;</div>
       </div>
-      <div class="ac-cta">D&#233;couvrir l'offre pro &#8594;</div>
     </a>
-    <a href="architectes.html" class="audience-card reveal d2">
-      <div class="ac-badge">Architecte &amp; Ma&#238;tre d'&#339;uvre</div>
-      <h3 class="ac-title">Vous cherchez un partenaire technique</h3>
-      <p class="ac-desc">Vous concevez, nous r&#233;alisons. Lecture de plans DWG, prototypage, tol&#233;rance &#177;0,5 mm.</p>
-      <div class="ac-list">
-        <div class="ac-item"><div class="ac-dot"></div>Lecture de plans DWG/PDF</div>
-        <div class="ac-item"><div class="ac-dot"></div>Prototypage &amp; &#233;chantillons</div>
-        <div class="ac-item"><div class="ac-dot"></div>Tol&#233;rance &#177;0,5 mm en atelier</div>
-        <div class="ac-item"><div class="ac-dot"></div>DOE complet &#224; la livraison</div>
+
+    <!-- PROFESSIONNEL -->
+    <a href="professionnels.html" style="display:block;text-decoration:none;color:inherit;border:1px solid var(--gris-clair);transition:box-shadow .25s;overflow:hidden" class="reveal d1">
+      <div style="height:200px;background:var(--bleu);position:relative;overflow:hidden">
+        <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(39,78,125,.7) 0%,transparent 60%)"></div>
+        <div style="position:absolute;top:1rem;left:1rem;font-family:'Barlow Condensed',sans-serif;font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:#fff;background:var(--bleu2);padding:3px 10px">Professionnel</div>
+        <div style="position:absolute;bottom:1rem;left:1rem;right:1rem">
+          <div style="font-family:'Bree Serif',serif;font-size:1.2rem;color:#fff;line-height:1.2">Votre partenaire<br>de confiance</div>
+        </div>
       </div>
-      <div class="ac-cta">D&#233;couvrir l'offre architectes &#8594;</div>
+      <div style="padding:1.5rem">
+        <p style="font-size:.9rem;color:var(--gris);line-height:1.6;margin-bottom:1rem">Pharmacies, commerces, bureaux &#8212; d&#233;lais tenus, qualit&#233; constante, interlocuteur unique.</p>
+        <div style="display:flex;flex-direction:column;gap:.4rem;margin-bottom:1.2rem">
+          <div style="display:flex;align-items:center;gap:.6rem;font-size:.85rem;color:var(--gris)"><div style="width:5px;height:5px;background:var(--bleu);border-radius:50%;flex-shrink:0"></div>R&#233;ponse sous 24h</div>
+          <div style="display:flex;align-items:center;gap:.6rem;font-size:.85rem;color:var(--gris)"><div style="width:5px;height:5px;background:var(--bleu);border-radius:50%;flex-shrink:0"></div>+500 chantiers pro</div>
+          <div style="display:flex;align-items:center;gap:.6rem;font-size:.85rem;color:var(--gris)"><div style="width:5px;height:5px;background:var(--bleu);border-radius:50%;flex-shrink:0"></div>Dossier technique complet</div>
+        </div>
+        <div style="font-family:'Barlow Condensed',sans-serif;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--bleu);font-weight:600">D&#233;couvrir &#8594;</div>
+      </div>
     </a>
+
+    <!-- ARCHITECTE -->
+    <a href="architectes.html" style="display:block;text-decoration:none;color:inherit;border:1px solid var(--gris-clair);transition:box-shadow .25s;overflow:hidden" class="reveal d2">
+      <div style="height:200px;background:var(--bleu2);position:relative;overflow:hidden">
+        <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(15,25,50,.7) 0%,transparent 60%)"></div>
+        <div style="position:absolute;top:1rem;left:1rem;font-family:'Barlow Condensed',sans-serif;font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:#fff;background:rgba(0,0,0,.3);padding:3px 10px">Architecte &amp; MOE</div>
+        <div style="position:absolute;bottom:1rem;left:1rem;right:1rem">
+          <div style="font-family:'Bree Serif',serif;font-size:1.2rem;color:#fff;line-height:1.2">Pr&#233;cision<br>technique</div>
+        </div>
+      </div>
+      <div style="padding:1.5rem">
+        <p style="font-size:.9rem;color:var(--gris);line-height:1.6;margin-bottom:1rem">Vous concevez, nous r&#233;alisons. Plans DWG, prototypage, tol&#233;rance &#177;0,5 mm.</p>
+        <div style="display:flex;flex-direction:column;gap:.4rem;margin-bottom:1.2rem">
+          <div style="display:flex;align-items:center;gap:.6rem;font-size:.85rem;color:var(--gris)"><div style="width:5px;height:5px;background:var(--bleu);border-radius:50%;flex-shrink:0"></div>Lecture plans DWG/PDF</div>
+          <div style="display:flex;align-items:center;gap:.6rem;font-size:.85rem;color:var(--gris)"><div style="width:5px;height:5px;background:var(--bleu);border-radius:50%;flex-shrink:0"></div>Tol&#233;rance &#177;0,5 mm</div>
+          <div style="display:flex;align-items:center;gap:.6rem;font-size:.85rem;color:var(--gris)"><div style="width:5px;height:5px;background:var(--bleu);border-radius:50%;flex-shrink:0"></div>DOE complet livr&#233;</div>
+        </div>
+        <div style="font-family:'Barlow Condensed',sans-serif;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--bleu);font-weight:600">D&#233;couvrir &#8594;</div>
+      </div>
+    </a>
+
   </div>
 </section>
 
@@ -393,7 +420,7 @@ footer{background:var(--anthracite);color:#fff;padding:5rem 6vw 2.5rem}
     </div>
     <div class="footer-col"><h4>R&#233;alisations</h4><ul><li><a href="cuisines.html">Cuisines</a></li><li><a href="bibliotheques.html">Biblioth&#232;ques</a></li><li><a href="dressings.html">Dressings</a></li><li><a href="salles-de-bains.html">Salles de bains</a></li><li><a href="escaliers.html">Escaliers</a></li><li><a href="professionnel.html">Professionnel</a></li></ul></div>
     <div class="footer-col"><h4>L'entreprise</h4><ul><li><a href="histoire.html">Notre histoire</a></li><li><a href="particuliers.html">Particuliers</a></li><li><a href="professionnels.html">Professionnels</a></li><li><a href="architectes.html">Architectes</a></li></ul></div>
-    <div class="footer-col"><h4>Contact</h4><ul><li><a href="tel:0477323650">04 77 32 36 50</a></li><li><a href="mailto:info@planforet.com">info@planforet.com</a></li><li><a href="contact.html">Devis gratuit</a></li><li><a href="mentions-legales.html">Mentions l&#233;gales</a></li></ul></div>
+    <div class="footer-col"><h4>Contact</h4><ul><li><a href="tel:0477323650">04 77 32 36 50</a></li><li><a href="/cdn-cgi/l/email-protection#a7cec9c1c8e7d7cbc6c9c1c8d5c2d389c4c8ca"><span class="__cf_email__" data-cfemail="b7ded9d1d8f7c7dbd6d9d1d8c5d2c399d4d8da">[email&#160;protected]</span></a></li><li><a href="contact.html">Devis gratuit</a></li><li><a href="mentions-legales.html">Mentions l&#233;gales</a></li></ul></div>
   </div>
   <div class="footer-bottom">
     <p>&#169; 2025 planForet SAS &#8212; ZI, 7 rue Danton, 42000 Saint-&#201;tienne &#8212; Fond&#233;e en 1936</p>
@@ -409,7 +436,7 @@ footer{background:var(--anthracite);color:#fff;padding:5rem 6vw 2.5rem}
   </div>
 </div>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 document.addEventListener('DOMContentLoaded', function() {
   var nav = document.getElementById('nav');
   var lw = document.getElementById('logo-w');
@@ -476,12 +503,4 @@ document.addEventListener('DOMContentLoaded', function() {
   if (cno) cno.addEventListener('click', function() { localStorage.setItem('pf-ck', 'no'); if (cookie) cookie.classList.remove('show'); });
 
   document.querySelectorAll('a[href^="#"]').forEach(function(a) {
-    a.addEventListener('click', function(e) {
-      var t = document.querySelector(a.getAttribute('href'));
-      if (t) { e.preventDefault(); window.scrollTo({top: t.offsetTop - 80, behavior: 'smooth'}); }
-    });
-  });
-});
-</script>
-</body>
-</html>
+    a.add
